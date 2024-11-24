@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "kazzutils",
+    "name": "KazzUtils",
+    "description": "A Utility mod for the Mini game Skyblock on the Minecraft Server Hypixel. This is a Remake of the Mod KazzUtils also made by me. I plan on using this from now on as i want to code in Kotlin. Credits towards hannibal2 as he Provided the Template for this Mod.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "RealKazz"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
