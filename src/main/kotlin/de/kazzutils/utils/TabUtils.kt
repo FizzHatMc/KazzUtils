@@ -96,16 +96,7 @@ object TabUtils { //TODO: REWORK CLASS = CRASHES ALOT
             if (matcher.find()) {
                 area = matcher.group(1)
             }
-            /*
-            if (petFlag && petFlagCount <= 1) {
-                if (petFlagCount == 0) petName = line.substring(trim.indexOf(']') + 2)
-                if (petFlagCount == 1) petXp = line
-            petFlagCount++
-            {} else {
-                petFlagCount = 0
-                petFlag = false
-            }
-            */
+
 
             when {
                 trim.contains("Pet:", ignoreCase = true) -> {
@@ -129,7 +120,7 @@ object TabUtils { //TODO: REWORK CLASS = CRASHES ALOT
                     if (test != null) {
                         gardenLevel = test
                         if (gardenLevel != 15) {
-                            gardenPercent = trim.substring(trim.indexOf("(") + 1, trim.indexOf(")") - 7).toDouble()
+                            gardenPercent = trim.substring(trim.indexOf("(") + 1, trim.indexOf(")")-1).toDouble()
                         }
                     } else {
                         if (lvl != "XV") {
@@ -174,79 +165,6 @@ object TabUtils { //TODO: REWORK CLASS = CRASHES ALOT
                     if (berserkerName.contains(mc.thePlayer.name)) playerClass = "Berserk"
                 }
             }
-            /*
-            if(trim.contains("Pet:",true)){
-                var index = scoreboardList.indexOf(line) + 1
-                petName = scoreboardList[index]?.substring(trim.indexOf(']') + 2) ?: return
-                petXp = scoreboardList[index+1] ?: return
-            }
-            if (trim.contains("Contest:")) {
-                val index = scoreboardList.indexOf(line) + 1
-                time = scoreboardList[index]?.substring((scoreboardList[index]?.indexOf(": ") )?.plus(1) ?: return).toString()
-                for(i in 1..3){
-                    contest.add(scoreboardList[index+i])
-                }
-            } else if (trim.contains("Garden Level:")) {
-                val split = trim.substring(trim.indexOf(":") + 1)
-                var lvl = split.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[1]
-                lvl = lvl.replace(" ", "")
-                val test: Int? = NumberUtils.getNumber(lvl)
-
-                if (test != null) {
-                    //gardenLevel = Integer.parseInt(trim.substring(trim.indexOf(":") + 2 /*trim.indexOf(":") + 4*/).replace(" ", ""));
-                    gardenLevel = test
-                    if (gardenLevel != 15) {
-                        gardenPercent = trim.substring(trim.indexOf("(") + 1, trim.indexOf(")") - 7).toDouble()
-                    }
-                } else {
-                    if (lvl != "XV") {
-                        //String percent = split.split(" ")[1];
-                        gardenLevel = NumberUtils.toInteger(lvl)
-                        gardenPercent = trim.substring(trim.indexOf("(") + 1, trim.indexOf(")") - 1).toDouble()
-                    } else gardenLevel = NumberUtils.toInteger("XV")
-                }
-            } else if (trim.contains("Pet:")) {
-                petFlag = true
-            } else if (trim.contains("Dungeon: Catacombs")) {
-                //area = "Catacombs"
-            } else if (trim.contains("Commissions:")) {
-                //area = "Dwarven"
-                var index = scoreboardList.indexOf(line)
-                for(i in 1..5){
-                    if(scoreboardList[index+i] == "") return
-                    comms.add(scoreboardList[index+i])
-                }
-            }
-
-
-
-            if(trim.contains("Soulflow: ")){
-                soulflow = trim.substring( trim.indexOf('S')+"Soulflow: ".length).replace(",","").toInt()
-            }
-
-            if (line.contains("(Archer")) {
-                archerName = line.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[1]
-                if(archerName.contains(mc.thePlayer.name)) playerClass = "Archer"
-                //ChatUtils.messageToChat("Player: $archerName class: $playerClass Name: "+mc.thePlayer.name)
-            } else if (line.contains("(Tank")) {
-                tankName = line.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[1]
-                if(tankName.contains(mc.thePlayer.name)) playerClass = "Tank"
-                //ChatUtils.messageToChat("Player: $tankName class: $playerClass"+mc.thePlayer.name)
-            } else if (line.contains("(Mage")) {
-                mageName = line.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[1]
-                if(mageName .contains(mc.thePlayer.name)) playerClass = "Mage"
-                //ChatUtils.messageToChat("Player: $mageName class: $playerClass"+mc.thePlayer.name)
-            } else if (line.contains("(Healer")) {
-                healerName = line.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[1]
-                if(healerName.contains(mc.thePlayer.name)) playerClass = "Healer"
-                //ChatUtils.messageToChat("Player: $healerName class: $playerClass"+mc.thePlayer.name)
-            } else if (line.contains("(Berserk")) {
-                berserkerName = line.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[1]
-                if(berserkerName.contains(mc.thePlayer.name)) playerClass = "Berserk"
-                //ChatUtils.messageToChat("Player: $berserkerName class: $playerClass"+mc.thePlayer.name)
-            }
-        }
-        */
         }
     }
 
