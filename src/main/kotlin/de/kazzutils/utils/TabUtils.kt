@@ -129,7 +129,7 @@ object TabUtils { //TODO: REWORK CLASS = CRASHES ALOT
                     if (test != null) {
                         gardenLevel = test
                         if (gardenLevel != 15) {
-                            gardenPercent = trim.substring(trim.indexOf("(") + 1, trim.indexOf(")") - 7).toDouble()
+                            gardenPercent = trim.substring(trim.indexOf("(") + 1, trim.indexOf(")")-1).toDouble()
                         }
                     } else {
                         if (lvl != "XV") {
