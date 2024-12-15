@@ -17,7 +17,7 @@ public class KazzUtilsConfig extends Config {
 
     @Override
     public String getTitle(){
-        return "KazzUtilsV2 "+ KazzUtils.getVersion()+" by §aRealKazz§r, preset by §channibal22§r ";
+        return "KazzUtils "+ KazzUtils.getVersion()+" by §aRealKazz§r, preset by §channibal22§r ";
     }
 
     @Override

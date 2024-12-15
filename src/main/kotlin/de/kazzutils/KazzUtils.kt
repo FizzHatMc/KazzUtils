@@ -166,10 +166,10 @@ class KazzUtils {
 
     companion object {
         lateinit var configManager: ConfigManager
-        const val MOD_ID = "kazzutilsv2"
+        const val MOD_ID = "kazzutils"
         val mc: Minecraft = Minecraft.getMinecraft()
         val modDir by lazy {
-            File(File(mc.mcDataDir, "config"), "kazzutilsv2").also {
+            File(File(mc.mcDataDir, "config"), "kazzutils").also {
                 it.mkdirs()
                 File(it, "trackers").mkdirs()
             }

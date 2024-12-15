@@ -27,7 +27,7 @@ enum class Deployable(
     SOSFLARE("§d§lSOS Flare",0.0,30,25,10,0.05,1.25,0,0.0,40 * 40, "sos",EnumChatFormatting.GOLD,  "c0062cc98ebda72a6a4b89783adcef2815b483a01d73ea87b3df76072a89d13b");
 
 
-    val resourceLocation: ResourceLocation = ResourceLocation("kazzutilsv2", "powerorbs/$resourcePath.png")
+    val resourceLocation: ResourceLocation = ResourceLocation("kazzutils", "powerorbs/$resourcePath.png")
 
     /**
      * Check if a distance is within this orb's radius.

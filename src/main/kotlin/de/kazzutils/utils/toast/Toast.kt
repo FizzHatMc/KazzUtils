@@ -14,7 +14,7 @@ open class Toast(title: String, image: UIComponent? = null, subtext: String = ""
     val titleState = BasicState(title)
     val subtextState = BasicState(subtext)
 
-    val background by UIImage.ofResource("/assets/skytils/gui/toast.png").constrain {
+    val background by UIImage.ofResource("/assets/kazzutils/gui/toast.png").constrain {
         width = ImageAspectConstraint()
         height = 32.pixels
     } childOf this

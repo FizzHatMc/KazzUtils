@@ -23,7 +23,7 @@ import java.util.*
 
 class ConfigManager {
     companion object {
-        var configDirectory = File("config/KazzUtilsV2")
+        var configDirectory = File("config/kazzutils")
 
         val gson = GsonBuilder().setPrettyPrinting()
             .excludeFieldsWithoutExposeAnnotation()
