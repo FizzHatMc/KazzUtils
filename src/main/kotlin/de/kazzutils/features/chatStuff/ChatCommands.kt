@@ -1,4 +1,4 @@
-package de.kazzutils.features.chatCommands
+package de.kazzutils.features.chatStuff
 
 import de.kazzutils.KazzUtils
 import de.kazzutils.utils.ChatUtils
@@ -89,7 +89,7 @@ class ChatCommands {
     }
 
 
-    private fun noColorCodes(message: String): String {
+    public fun noColorCodes(message: String): String {
         // Definiere den regulären Ausdruck für Minecraft-Farbcode-Tags
 
 

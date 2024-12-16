@@ -8,6 +8,7 @@ import net.minecraft.util.EnumChatFormatting
 import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+import java.util.regex.Pattern
 
 object ChatUtils {
 
@@ -23,6 +24,18 @@ object ChatUtils {
     var skill: String? = null
     var defense: String? = null
 
+    fun getUserMessageFromUnformatedText(message: String): String {
+        val regex = "(?<=: ).*"
+        var returnMessage = ""
+        val pattern = Pattern.compile(regex)
+        val matcher = pattern.matcher(noColorCodes(message))
+
+        if (matcher.find()) {
+            returnMessage = matcher.group()
+        }
+
+        return returnMessage
+    }
 
     fun messageToChat(message: String) {
         mc.thePlayer.addChatMessage(ChatComponentText(message))
@@ -34,6 +47,23 @@ object ChatUtils {
 
     fun error(message: String){
         mc.thePlayer.addChatMessage(ChatComponentText(EnumChatFormatting.RED.toString()+message))
+    }
+
+    fun noColorCodes(message: String): String {
+        // Definiere den regulären Ausdruck für Minecraft-Farbcode-Tags
+
+
+        val regex = "§[0-9a-fklmnor]"
+
+        // Erstelle ein Pattern-Objekt
+        val pattern = Pattern.compile(regex)
+
+        // Erstelle einen Matcher für den Eingabetext
+        val matcher = pattern.matcher(message)
+
+        // Entferne alle Minecraft-Farbcode-Tags
+        val output = matcher.replaceAll("")
+        return output
     }
 
     @SubscribeEvent

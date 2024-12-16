@@ -9,7 +9,8 @@ import de.kazzutils.commands.CommandManager
 import de.kazzutils.config.ConfigManager
 import de.kazzutils.config.KazzUtilsConfig
 import de.kazzutils.core.GuiManager
-import de.kazzutils.features.chatCommands.ChatCommands
+import de.kazzutils.features.chatStuff.ChatCommands
+import de.kazzutils.features.chatStuff.ChatEmotes
 import de.kazzutils.features.deployable.DeployableHud
 import de.kazzutils.features.deployable.DeployableManager
 import de.kazzutils.features.dungeon.F5.LividFinder
@@ -116,6 +117,7 @@ class KazzUtils {
         reg(RagAxe())
         reg(TitleUtils())
         reg(SchedRender())
+        reg(ChatEmotes())
 
 
 
