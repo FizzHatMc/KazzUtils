@@ -1,26 +1,20 @@
 package de.kazzutils
 
-import de.kazzutils.features.mining.*
-import de.kazzutils.utils.*
-import de.kazzutils.data.enumClass.*
-import de.kazzutils.utils.Utils
-import de.kazzutils.core.PersistentSave
 import de.kazzutils.commands.CommandManager
 import de.kazzutils.config.ConfigManager
 import de.kazzutils.config.KazzUtilsConfig
 import de.kazzutils.core.GuiManager
+import de.kazzutils.core.PersistentSave
+import de.kazzutils.data.enumClass.DunClass
 import de.kazzutils.features.chatStuff.ChatCommands
 import de.kazzutils.features.chatStuff.ChatEmotes
 import de.kazzutils.features.deployable.DeployableHud
 import de.kazzutils.features.deployable.DeployableManager
+import de.kazzutils.features.dungeon.*
 import de.kazzutils.features.dungeon.F5.LividFinder
 import de.kazzutils.features.dungeon.F7.CrystalWaypoints
 import de.kazzutils.features.dungeon.F7.TerminalWaypoints
-import de.kazzutils.features.dungeon.HighlightClass
 import de.kazzutils.features.dungeon.M7.RelicWaypoints
-import de.kazzutils.features.dungeon.MaskTimer
-import de.kazzutils.features.dungeon.PlayerClass
-import de.kazzutils.features.dungeon.TankRange
 import de.kazzutils.features.events.mythological.MythoTracker
 import de.kazzutils.features.events.mythological.MythoTrackerHud
 import de.kazzutils.features.farming.contest.ContestHud
@@ -31,12 +25,12 @@ import de.kazzutils.features.hud.SoulflowNotif
 import de.kazzutils.features.hud.uioverlay.*
 import de.kazzutils.features.keyshortcut.KeyShortcuts
 import de.kazzutils.features.mining.CommissionTracker
+import de.kazzutils.features.mining.StarCultNotif
 import de.kazzutils.features.misc.MiscFeatures
 import de.kazzutils.features.misc.SkullHider
 import de.kazzutils.features.misc.items.GyroRange
 import de.kazzutils.features.misc.items.RagAxe
-import de.kazzutils.utils.ChatUtils
-import de.kazzutils.utils.TitleUtils
+import de.kazzutils.utils.*
 import de.kazzutils.utils.colors.CustomColor
 import de.kazzutils.utils.graphics.ScreenRenderer
 import kotlinx.serialization.KSerializer
@@ -90,7 +84,7 @@ class KazzUtils {
             ContestHud,
             DeployableHud,
             LividFinder,
-
+            MelodyProgress
 
         ).forEach(MinecraftForge.EVENT_BUS::register)
     }
@@ -118,11 +112,7 @@ class KazzUtils {
         reg(TitleUtils())
         reg(SchedRender())
         reg(ChatEmotes())
-
-
-
-
-
+        //reg(MelodyProgress())
     }
 
     @Mod.EventHandler
@@ -152,7 +142,6 @@ class KazzUtils {
         if(ticks % 20 == 0L) {
             if(config.mining.starCult) StarCultNotif.checkCult()
             Utils.checkSkyblock()
-
 
 
 

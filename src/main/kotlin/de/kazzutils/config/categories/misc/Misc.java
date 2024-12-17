@@ -7,6 +7,7 @@ import de.kazzutils.config.categories.misc.feature.*;
 import de.kazzutils.gui.KeyShortcutsGui;
 import de.kazzutils.gui.editing.ElementaEditingGui;
 import io.github.notenoughupdates.moulconfig.annotations.Accordion;
+import io.github.notenoughupdates.moulconfig.annotations.ConfigEditorBoolean;
 import io.github.notenoughupdates.moulconfig.annotations.ConfigEditorButton;
 import io.github.notenoughupdates.moulconfig.annotations.ConfigOption;
 
@@ -62,6 +63,10 @@ public class Misc {
     @Accordion
     public Hud hud = new Hud();
 
+    @Expose
+    @ConfigOption(name = "Chat Emotes", desc = "Replaces Emotes with the MVP++ Emotes")
+    @ConfigEditorBoolean
+    public boolean chatEmotes = false;
 
 
 }

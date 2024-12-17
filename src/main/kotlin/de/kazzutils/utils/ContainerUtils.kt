@@ -9,6 +9,7 @@ import net.minecraft.inventory.IInventory
 import net.minecraft.inventory.Slot
 import net.minecraft.item.ItemStack
 
+
 object ContainerUtils {
 
 
@@ -62,16 +63,15 @@ object ContainerUtils {
     }
 
 
-    fun openInventoryName(): String {
-        val screen: Any = mc.currentScreen
-        if (screen is GuiChest) {
-            val container = screen.inventorySlots
-            if (container is ContainerChest) {
-                return container.lowerChestInventory.displayName.formattedText.trim { it <= ' ' }
-            }
-        }
-        return ""
+
+    fun openInventoryName() = mc.currentScreen.let {
+        if (it is GuiChest) {
+            val chest = it.inventorySlots as ContainerChest
+            chest.getInventoryName()
+        } else ""
     }
+
+    fun ContainerChest.getInventoryName() = this.lowerChestInventory.displayName.unformattedText.trim()
 
 
     fun getCurrentScreen(): GuiContainer? {

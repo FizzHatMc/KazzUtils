@@ -1,10 +1,10 @@
 package de.kazzutils.features.chatStuff
 
+import de.kazzutils.KazzUtils
 import de.kazzutils.utils.ChatUtils
 import de.kazzutils.utils.ChatUtils.getUserMessageFromUnformatedText
 import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
-import java.util.regex.Pattern
 
 
 class ChatEmotes {
@@ -45,6 +45,7 @@ class ChatEmotes {
     @SubscribeEvent
     fun onChat(event: ClientChatReceivedEvent) {
         if (event.type.toInt() == 2) return
+        if (!KazzUtils.config.misc.chatEmotes) return
         var message = event.message.unformattedText
         message = getUserMessageFromUnformatedText(message)
 
