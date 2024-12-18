@@ -1,7 +1,6 @@
 package de.kazzutils.utils
 
 import de.kazzutils.KazzUtils.Companion.mc
-import de.kazzutils.utils.ItemUtils.itemID
 import net.minecraft.client.gui.inventory.GuiChest
 import net.minecraft.client.gui.inventory.GuiContainer
 import net.minecraft.entity.player.InventoryPlayer
@@ -51,7 +50,6 @@ object ContainerUtils {
         if (slot.hasStack) {
             val itemStack: ItemStack = slot.stack
 
-            ChatUtils.messageToChat(itemStack.itemID)
             return itemStack
         }
 

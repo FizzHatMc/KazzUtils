@@ -1,10 +1,7 @@
 package de.kazzutils.config.categories.dungeon;
 
 import com.google.gson.annotations.Expose;
-import de.kazzutils.config.categories.dungeon.feature.DragPrio;
-import de.kazzutils.config.categories.dungeon.feature.DungeonClass;
-import de.kazzutils.config.categories.dungeon.feature.ItemConf;
-import de.kazzutils.config.categories.dungeon.feature.Waypoints;
+import de.kazzutils.config.categories.dungeon.feature.*;
 import io.github.notenoughupdates.moulconfig.annotations.Category;
 import io.github.notenoughupdates.moulconfig.annotations.ConfigEditorBoolean;
 import io.github.notenoughupdates.moulconfig.annotations.ConfigOption;
@@ -42,5 +39,9 @@ public class Dungeon {
     @Expose
     @Category(name = "Dragon Priority", desc = "Settings for Dragon Prios")
     public DragPrio dragPrio = new DragPrio();
+
+    @Expose
+    @Category(name = "Melody", desc = "Settings for Melody")
+    public Melody melody = new Melody();
 
 }
