@@ -1,6 +1,7 @@
 package de.kazzutils.utils
 
 import de.kazzutils.KazzUtils.Companion.mc
+import de.kazzutils.utils.ItemUtils.itemID
 import net.minecraft.client.gui.inventory.GuiChest
 import net.minecraft.client.gui.inventory.GuiContainer
 import net.minecraft.entity.player.InventoryPlayer
@@ -37,6 +38,23 @@ object ContainerUtils {
             if (inventory2.getStackInSlot(i) == null) continue
             if (inventory2.getStackInSlot(i).displayName.contains(itemName!!)) return inventory2.getStackInSlot(i)
         }
+        return null
+    }
+
+    fun getItemStackFromSlot(slots: List<Slot>, slotIndex: Int): ItemStack? {
+        if (slotIndex !in slots.indices) {
+            return null
+        }
+
+        val slot = slots[slotIndex]
+
+        if (slot.hasStack) {
+            val itemStack: ItemStack = slot.stack
+
+            ChatUtils.messageToChat(itemStack.itemID)
+            return itemStack
+        }
+
         return null
     }
 
