@@ -9,6 +9,7 @@ import net.minecraft.inventory.IInventory
 import net.minecraft.inventory.Slot
 import net.minecraft.item.ItemStack
 
+
 object ContainerUtils {
 
 
@@ -39,6 +40,22 @@ object ContainerUtils {
         return null
     }
 
+    fun getItemStackFromSlot(slots: List<Slot>, slotIndex: Int): ItemStack? {
+        if (slotIndex !in slots.indices) {
+            return null
+        }
+
+        val slot = slots[slotIndex]
+
+        if (slot.hasStack) {
+            val itemStack: ItemStack = slot.stack
+
+            return itemStack
+        }
+
+        return null
+    }
+
     fun getItemsInOpenChest(): List<Slot> {
         val slots: MutableList<Slot> = ArrayList()
         val screen: Any = mc.currentScreen
@@ -62,16 +79,15 @@ object ContainerUtils {
     }
 
 
-    fun openInventoryName(): String {
-        val screen: Any = mc.currentScreen
-        if (screen is GuiChest) {
-            val container = screen.inventorySlots
-            if (container is ContainerChest) {
-                return container.lowerChestInventory.displayName.formattedText.trim { it <= ' ' }
-            }
-        }
-        return ""
+
+    fun openInventoryName() = mc.currentScreen.let {
+        if (it is GuiChest) {
+            val chest = it.inventorySlots as ContainerChest
+            chest.getInventoryName()
+        } else ""
     }
+
+    fun ContainerChest.getInventoryName() = this.lowerChestInventory.displayName.unformattedText.trim()
 
 
     fun getCurrentScreen(): GuiContainer? {
