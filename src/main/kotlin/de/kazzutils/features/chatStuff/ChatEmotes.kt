@@ -6,7 +6,7 @@ import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import java.util.regex.Pattern
 
-
+//TODO: Fix Diffrent Chats being Buggy, "/gc o/" sends the message to gc but doesnt display in users chat
 class ChatEmotes {
     val replacements = mapOf(
         "<3" to "❤",
@@ -69,6 +69,7 @@ class ChatEmotes {
         if (!replaced) return
         val newMessage = words.joinToString(" ")
         event.isCanceled = true
+        ChatUtils.messageToChat("Test: " + newMessage)
         ChatUtils.userMessage(newMessage)
     }
 

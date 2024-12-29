@@ -3,12 +3,14 @@ package de.kazzutils.commands
 import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.commands.SimpleCommand.ProcessCommandRunnable
+import de.kazzutils.features.chatStuff.RequiredPetXp
 import de.kazzutils.features.mining.StarCultNotif
 import de.kazzutils.gui.KeyShortcutsGui
 import de.kazzutils.gui.editing.ElementaEditingGui
 import de.kazzutils.utils.ChatUtils
 import net.minecraft.command.ICommandSender
 import net.minecraft.util.BlockPos
+import net.minecraft.util.ChatComponentText
 import net.minecraftforge.client.ClientCommandHandler
 
 class CommandManager {
@@ -38,6 +40,40 @@ class CommandManager {
 
 
             }
+            if(args.isEmpty())KazzUtils.configManager.openConfigGui()
+        }
+        //TODO: Learn how to add Forced Args, example: /calcpet rarity (options being leg, epic, rare, uncommon, common) endlvl
+        registerCommand("calcpet"){ args ->
+            //TODO: Fix Rarity showing as user send ("leg" and not "Legendary") looks better in formating shouldnt be buggy though
+            val rarity = args.firstOrNull()
+            if(args.size == 3 && rarity != null) {
+                val startLvl = args[1].toInt()
+                val endLvl = args[2].toInt()
+
+                val reqXp =  RequiredPetXp.getRequiredPetLvl(rarity, startLvl, endLvl)
+
+                val test = ChatUtils.addColorCodeReturnComponent("Pet XP Required for $rarity: ", "aqua")
+                val test2 = ChatUtils.addColorCodeReturnComponent(ChatUtils.formatNumber(reqXp), "gold")
+                val test3 = ChatComponentText(test.unformattedText + test2.unformattedText)
+
+
+
+                ChatUtils.messageToChat(test3)
+            }else if(args.size == 2 && rarity != null){
+                val endLvl = args[1].toInt()
+                val reqXp = RequiredPetXp.getRequiredPetLvl(rarity, endLvl)
+
+                val test = ChatUtils.addColorCodeReturnComponent("Pet XP Required for $rarity: ", "aqua")
+                val test2 = ChatUtils.addColorCodeReturnComponent(ChatUtils.formatNumber(reqXp), "gold")
+                val test3 = ChatComponentText(test.unformattedText + test2.unformattedText)
+
+
+
+                ChatUtils.messageToChat(test3)
+
+            }
+
+
             if(args.isEmpty())KazzUtils.configManager.openConfigGui()
         }
         /*

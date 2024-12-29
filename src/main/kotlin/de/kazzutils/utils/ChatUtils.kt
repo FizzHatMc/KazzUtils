@@ -8,6 +8,7 @@ import net.minecraft.util.EnumChatFormatting
 import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+import java.text.DecimalFormat
 import java.util.regex.Pattern
 
 object ChatUtils {
@@ -41,12 +42,52 @@ object ChatUtils {
         mc.thePlayer.addChatMessage(ChatComponentText(message))
     }
 
+    fun messageToChat(message: ChatComponentText) {
+        mc.thePlayer.addChatMessage(message)
+    }
+
+    fun messageToChatColored(message: String, color : String) {
+        mc.thePlayer.addChatMessage(ChatComponentText(getColorCode(color) + message))
+    }
+
     fun userMessage(message: String){
         mc.thePlayer.sendChatMessage(message)
     }
 
     fun error(message: String){
         mc.thePlayer.addChatMessage(ChatComponentText(EnumChatFormatting.RED.toString()+message))
+    }
+
+    fun getColorCode(colorName: String): String? {
+        return when (colorName.lowercase()) {
+            "black" -> "§0"
+            "dark_blue" -> "§1"
+            "dark_green" -> "§2"
+            "dark_aqua" -> "§3"
+            "dark_red" -> "§4"
+            "dark_purple" -> "§5"
+            "gold" -> "§6"
+            "gray" -> "§7"
+            "dark_gray" -> "§8"
+            "blue" -> "§9"
+            "green" -> "§a"
+            "aqua" -> "§b"
+            "red" -> "§c"
+            "light_purple" -> "§d"
+            "yellow" -> "§e"
+            "white" -> "§f"
+            else -> null // Return null if the color name is invalid
+        }
+
+    }
+
+    fun addColorCodeReturnComponent(msg: String, color: String) : ChatComponentText{
+        return ChatComponentText(getColorCode(color) + msg)
+    }
+
+    fun formatNumber(number: Number): String {
+        val formatter = DecimalFormat("#,###.##") // Adjust pattern for decimal places
+        return formatter.format(number)
     }
 
     fun noColorCodes(message: String): String {
