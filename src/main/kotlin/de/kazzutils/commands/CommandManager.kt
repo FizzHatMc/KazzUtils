@@ -44,26 +44,34 @@ class CommandManager {
         }
         //TODO: Learn how to add Forced Args, example: /calcpet rarity (options being leg, epic, rare, uncommon, common) endlvl
         registerCommand("calcpet"){ args ->
-            //TODO: Fix Rarity showing as user send ("leg" and not "Legendary") looks better in formating shouldnt be buggy though
-            val rarity = args.firstOrNull()
-            if(args.size == 3 && rarity != null) {
+            val rarity = args.firstOrNull().toString()
+            var rar = ""
+
+            when (rarity) {
+                "leg" -> rar = "Legendary"
+                "com" -> rar = "Common"
+                "uncom" -> rar = "Uncommon"
+                else -> rar = rarity.replace(rarity[0], rarity[0].toUpperCase())
+            }
+
+            if(args.size == 3) {
                 val startLvl = args[1].toInt()
                 val endLvl = args[2].toInt()
 
-                val reqXp =  RequiredPetXp.getRequiredPetLvl(rarity, startLvl, endLvl)
+                val reqXp =  RequiredPetXp.getRequiredPetLvl(rar, startLvl, endLvl)
 
-                val test = ChatUtils.addColorCodeReturnComponent("Pet XP Required for $rarity: ", "aqua")
+                val test = ChatUtils.addColorCodeReturnComponent("Pet XP Required for $rar: ", "aqua")
                 val test2 = ChatUtils.addColorCodeReturnComponent(ChatUtils.formatNumber(reqXp), "gold")
                 val test3 = ChatComponentText(test.unformattedText + test2.unformattedText)
 
 
 
                 ChatUtils.messageToChat(test3)
-            }else if(args.size == 2 && rarity != null){
+            }else if(args.size == 2){
                 val endLvl = args[1].toInt()
-                val reqXp = RequiredPetXp.getRequiredPetLvl(rarity, endLvl)
+                val reqXp = RequiredPetXp.getRequiredPetLvl(rar, endLvl)
 
-                val test = ChatUtils.addColorCodeReturnComponent("Pet XP Required for $rarity: ", "aqua")
+                val test = ChatUtils.addColorCodeReturnComponent("Pet XP Required for $rar: ", "aqua")
                 val test2 = ChatUtils.addColorCodeReturnComponent(ChatUtils.formatNumber(reqXp), "gold")
                 val test3 = ChatComponentText(test.unformattedText + test2.unformattedText)
 

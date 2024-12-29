@@ -625,27 +625,11 @@ object RequiredPetXp {
     ) //Map of every Cumulative Lvl for each Rarity (a Map with String:List)
 
     fun getRequiredPetLvl(rarity: String, startLvl: Int, endLvl: Int) : Int {
-        var rar = ""
-        when (rarity) {
-            "leg" -> rar= "legendary"
-            "com" -> rar= "common"
-            "uncom" -> rar= "uncommon"
-            else -> rar = rarity
-        }
-
-        return internalCalcPetLevel(rar, startLvl, endLvl)
+        return internalCalcPetLevel(rarity, startLvl, endLvl)
     }
 
     fun getRequiredPetLvl(rarity: String, endLvl: Int) : Int {
-        var rar = ""
-        when (rarity) {
-            "leg" -> rar= "legendary"
-            "com" -> rar= "common"
-            "uncom" -> rar= "uncommon"
-            else -> rar = rarity
-        }
-
-        return internalCalcPetLevel(rar, 0, endLvl)
+        return internalCalcPetLevel(rarity, 0, endLvl)
     }
 
     private fun internalCalcPetLevel(rarity: String, startLvl: Int, endLvl: Int): Int {
