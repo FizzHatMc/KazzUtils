@@ -1,4 +1,4 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.ui
 
 import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.core.structure.GuiElement

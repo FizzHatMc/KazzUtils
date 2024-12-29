@@ -2,8 +2,8 @@ package de.kazzutils.features.misc
 
 import de.kazzutils.KazzUtils
 import de.kazzutils.utils.ChatUtils
-import de.kazzutils.utils.ItemUtils.getSkullTexture
-import de.kazzutils.utils.ItemUtils.mc
+import de.kazzutils.utils.skyblockfeatures.ItemUtils.getSkullTexture
+import de.kazzutils.utils.skyblockfeatures.ItemUtils.mc
 import de.kazzutils.utils.TabUtils
 import net.minecraft.item.ItemStack
 import net.minecraftforge.client.event.RenderLivingEvent

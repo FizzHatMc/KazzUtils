@@ -4,7 +4,8 @@ import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion
 import de.kazzutils.features.mining.StarCultNotif
 import de.kazzutils.utils.*
-import de.kazzutils.utils.ItemUtils.mc
+import de.kazzutils.utils.skyblockfeatures.ItemUtils
+import de.kazzutils.utils.skyblockfeatures.ItemUtils.mc
 import net.minecraft.item.ItemStack
 import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.client.event.sound.PlaySoundEvent

@@ -18,7 +18,7 @@
 
 package de.kazzutils.core.structure
 
-import de.kazzutils.utils.RenderUtil
+import de.kazzutils.utils.ui.RenderUtil
 import de.kazzutils.utils.colors.CommonColors
 import gg.essential.universal.UResolution
 import net.minecraft.client.Minecraft

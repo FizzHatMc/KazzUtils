@@ -3,9 +3,10 @@ package de.kazzutils.features.hud
 import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.core.structure.GuiElement
-import de.kazzutils.utils.ColorUtils.toChromaColorInt
+import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
 import de.kazzutils.utils.ContainerUtils
 import de.kazzutils.utils.graphics.ScreenRenderer
+import de.kazzutils.utils.ui.RenderUtils
 import net.minecraft.item.ItemStack
 import net.minecraft.util.EnumChatFormatting
 
@@ -34,7 +35,7 @@ object ArrowsNotif {
             }
             //max 2880
 
-            if((amount<=config.minArrow) && config.ArrowNotif) de.kazzutils.utils.RenderUtils.drawTitle("Arrows",""+amount,EnumChatFormatting.RED)
+            if((amount<=config.minArrow) && config.ArrowNotif) RenderUtils.drawTitle("Arrows",""+amount,EnumChatFormatting.RED)
 
             message = arrowType + " / " + amount + "x"
             if(arrowType == "") return

@@ -4,6 +4,7 @@ import de.kazzutils.KazzUtils
 import de.kazzutils.event.WorldChangeEvent
 import de.kazzutils.utils.ChatUtils
 import de.kazzutils.utils.TabUtils
+import de.kazzutils.utils.ui.RenderUtils
 import net.minecraft.network.play.server.S2APacketParticles
 import net.minecraft.util.EnumChatFormatting
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
@@ -92,7 +93,7 @@ class DragPrio {
             determinePrio()
         } else if (conf.singleDrag) {
 
-            de.kazzutils.utils.RenderUtils.drawTitle("${drag.dragColor} IS SPAWNING!",EnumChatFormatting.RED) // TODO: MAKE COLOR BE SAME AS DRAGON
+            RenderUtils.drawTitle("${drag.dragColor} IS SPAWNING!",EnumChatFormatting.RED) // TODO: MAKE COLOR BE SAME AS DRAGON
             showText = true
             Timer().schedule(2000) { showText = false }
         }
@@ -137,12 +138,12 @@ class DragPrio {
 
        if (split == 1) {
             if (bersTeam || (purpleSpawn && ((healer && conf.healerPurp.toString() == "Arch_Team") || (tank && conf.tankPurp.toString() == "Arch_Team")))) {
-                de.kazzutils.utils.RenderUtils.drawTitle("${bersDrag.dragColor} IS SPAWNING!", EnumChatFormatting.RED) //TODO: MAKE COLOR BE SAME AS DRAGON
+                RenderUtils.drawTitle("${bersDrag.dragColor} IS SPAWNING!", EnumChatFormatting.RED) //TODO: MAKE COLOR BE SAME AS DRAGON
             } else {
-                de.kazzutils.utils.RenderUtils.drawTitle("${archDrag.dragColor} IS SPAWNING!", EnumChatFormatting.RED) //TODO: MAKE COLOR BE SAME AS DRAGON
+                RenderUtils.drawTitle("${archDrag.dragColor} IS SPAWNING!", EnumChatFormatting.RED) //TODO: MAKE COLOR BE SAME AS DRAGON
             }
         } else {
-            de.kazzutils.utils.RenderUtils.drawTitle("${normalDrag.dragColor} IS SPAWNING!", EnumChatFormatting.RED) //TODO: MAKE COLOR BE SAME AS DRAGON
+            RenderUtils.drawTitle("${normalDrag.dragColor} IS SPAWNING!", EnumChatFormatting.RED) //TODO: MAKE COLOR BE SAME AS DRAGON
         }
 
         showText = true

@@ -1,4 +1,4 @@
-package com.kazzutils.utils2
+package de.kazzutils.utils.ui
 
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen

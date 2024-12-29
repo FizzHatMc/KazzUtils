@@ -30,9 +30,13 @@ import de.kazzutils.features.misc.MiscFeatures
 import de.kazzutils.features.misc.SkullHider
 import de.kazzutils.features.misc.items.GyroRange
 import de.kazzutils.features.misc.items.RagAxe
+import de.kazzutils.features.museum.MuseumBlockDrop
 import de.kazzutils.utils.*
 import de.kazzutils.utils.colors.CustomColor
 import de.kazzutils.utils.graphics.ScreenRenderer
+import de.kazzutils.utils.skyblockfeatures.CatacombsUtils
+import de.kazzutils.utils.skyblockfeatures.MuseumUtils
+import de.kazzutils.utils.ui.SchedRender
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.descriptors.PrimitiveKind
 import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
@@ -84,7 +88,8 @@ class KazzUtils {
             ContestHud,
             DeployableHud,
             LividFinder,
-            MelodyProgress
+            MelodyProgress,
+            MuseumUtils
 
         ).forEach(MinecraftForge.EVENT_BUS::register)
     }
@@ -112,12 +117,15 @@ class KazzUtils {
         reg(TitleUtils())
         reg(SchedRender())
         reg(ChatEmotes())
+        reg(MuseumBlockDrop())
+
         //reg(MelodyProgress())
     }
 
     @Mod.EventHandler
     fun postInit(event: FMLPostInitializationEvent){
         PersistentSave.loadData()
+        MuseumUtils.loadData()
     }
 
     @SubscribeEvent

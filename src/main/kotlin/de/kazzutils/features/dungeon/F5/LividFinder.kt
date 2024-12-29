@@ -5,9 +5,10 @@ import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.data.enumClass.ChatColor
 import de.kazzutils.data.enumClass.ChatColor.Companion.toChatColor
 import de.kazzutils.mixin.RenderLivingEntityHelper
-import de.kazzutils.utils.ItemUtils
+import de.kazzutils.utils.skyblockfeatures.ItemUtils
 import de.kazzutils.utils.TabUtils
-import de.kazzutils.utils.withAlpha
+import de.kazzutils.utils.ui.RenderUtils
+import de.kazzutils.utils.ui.withAlpha
 import net.minecraft.block.BlockStainedGlass
 import net.minecraft.client.entity.EntityOtherPlayerMP
 import net.minecraft.client.entity.EntityPlayerSP
@@ -89,7 +90,7 @@ object LividFinder {
         if(mc.theWorld == null)return
         if(getLividAlive() == null)return
         if(!KazzUtils.config.dungeon.lividFinder) return
-        de.kazzutils.utils.RenderUtils.drawOutlinedBoundingBox(getLividAlive()?.entityBoundingBox, Color.RED, 4f,event.partialTicks) ?: return
+        RenderUtils.drawOutlinedBoundingBox(getLividAlive()?.entityBoundingBox, Color.RED, 4f,event.partialTicks) ?: return
     }
 
 

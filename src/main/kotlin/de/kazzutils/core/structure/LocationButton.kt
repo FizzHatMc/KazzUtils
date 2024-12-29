@@ -17,7 +17,7 @@
  */
 package de.kazzutils.core.structure
 
-import de.kazzutils.utils.RenderUtil
+import de.kazzutils.utils.ui.RenderUtil
 import net.minecraft.client.Minecraft
 import net.minecraft.client.audio.SoundHandler
 import net.minecraft.client.gui.GuiButton

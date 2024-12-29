@@ -3,9 +3,10 @@ package de.kazzutils.features.dungeon.F7
 import de.kazzutils.KazzUtils
 import de.kazzutils.data.enumClass.DunClass
 import de.kazzutils.data.m7.coords.TermCoords
-import de.kazzutils.utils.CatacombsUtils
-import de.kazzutils.utils.ColorUtils.toChromaColorInt
+import de.kazzutils.utils.skyblockfeatures.CatacombsUtils
+import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
 import de.kazzutils.utils.TabUtils
+import de.kazzutils.utils.ui.RenderUtils
 import net.minecraft.client.Minecraft
 import net.minecraft.util.BlockPos
 import net.minecraftforge.client.event.RenderWorldLastEvent
@@ -44,7 +45,7 @@ class TerminalWaypoints {
 
                         val color = Color(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointColor.toChromaColorInt())
 
-                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypoints) de.kazzutils.utils.RenderUtils.renderBeaconBeam(
+                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypoints) RenderUtils.renderBeaconBeam(
                             x!!,
                             y!!,
                             z!!,
@@ -52,7 +53,7 @@ class TerminalWaypoints {
                             color.alpha.toFloat(),
                             event.partialTicks
                         )
-                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalText) de.kazzutils.utils.RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointText, blockPos!!, event.partialTicks)
+                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalText) RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointText, blockPos!!, event.partialTicks)
                         i++
                     }
                 }
@@ -67,7 +68,7 @@ class TerminalWaypoints {
 
                         val color = Color(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointColor.toChromaColorInt())
 
-                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypoints) de.kazzutils.utils.RenderUtils.renderBeaconBeam(
+                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypoints) RenderUtils.renderBeaconBeam(
                             x!!,
                             y!!,
                             z!!,
@@ -75,7 +76,7 @@ class TerminalWaypoints {
                             color.alpha.toFloat(),
                             event.partialTicks
                         )
-                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalText) de.kazzutils.utils.RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointText,
+                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalText) RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointText,
                             blockPos!!, event.partialTicks)
                         i++
                     }
@@ -91,7 +92,7 @@ class TerminalWaypoints {
 
                         val color = Color(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointColor.toChromaColorInt())
 
-                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypoints) de.kazzutils.utils.RenderUtils.renderBeaconBeam(
+                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypoints) RenderUtils.renderBeaconBeam(
                             x!!,
                             y!!,
                             z!!,
@@ -99,7 +100,7 @@ class TerminalWaypoints {
                             color.alpha.toFloat(),
                             event.partialTicks
                         )
-                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalText) de.kazzutils.utils.RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointText, blockPos!!, event.partialTicks)
+                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalText) RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointText, blockPos!!, event.partialTicks)
                         i++
                     }
                 }
@@ -114,7 +115,7 @@ class TerminalWaypoints {
 
                         val color = Color(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointColor.toChromaColorInt())
 
-                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypoints) de.kazzutils.utils.RenderUtils.renderBeaconBeam(
+                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypoints) RenderUtils.renderBeaconBeam(
                             x!!,
                             y!!,
                             z!!,
@@ -122,7 +123,7 @@ class TerminalWaypoints {
                             color.alpha.toFloat(),
                             event.partialTicks
                         )
-                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalText) de.kazzutils.utils.RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointText, blockPos!!, event.partialTicks)
+                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalText) RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointText, blockPos!!, event.partialTicks)
                         i++
                     }
                 }
@@ -137,7 +138,7 @@ class TerminalWaypoints {
 
                         val color = Color(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointColor.toChromaColorInt())
 
-                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypoints) de.kazzutils.utils.RenderUtils.renderBeaconBeam(
+                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypoints) RenderUtils.renderBeaconBeam(
                             x!!,
                             y!!,
                             z!!,
@@ -145,7 +146,7 @@ class TerminalWaypoints {
                             color.alpha.toFloat(),
                             event.partialTicks
                         )
-                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalText) de.kazzutils.utils.RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointText, blockPos!!, event.partialTicks)
+                        if (KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalText) RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.terminal.terminalWaypointText, blockPos!!, event.partialTicks)
                         i++
                     }
                 }

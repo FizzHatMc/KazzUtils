@@ -6,10 +6,11 @@ import de.kazzutils.data.enumClass.DunClass
 import de.kazzutils.data.enumClass.WitherKingDragons
 import de.kazzutils.data.m7.coords.CauldronCoords
 import de.kazzutils.data.m7.coords.RelicCoords
-import de.kazzutils.utils.CatacombsUtils
+import de.kazzutils.utils.skyblockfeatures.CatacombsUtils
 import de.kazzutils.utils.ChatUtils
-import de.kazzutils.utils.ColorUtils.toChromaColorInt
+import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
 import de.kazzutils.utils.TabUtils
+import de.kazzutils.utils.ui.RenderUtils
 import net.minecraft.client.entity.EntityPlayerSP
 import net.minecraft.entity.Entity
 import net.minecraft.util.BlockPos
@@ -60,13 +61,13 @@ class RelicWaypoints {
                 checkNotNull(drag)
                 if (!drag.isDestroyed) {
                     ChatUtils.messageToChat(EnumChatFormatting.LIGHT_PURPLE.toString() + "Render next")
-                    de.kazzutils.utils.RenderUtils.renderBeaconBeam(x, y, z, color.rgb, color.alpha.toFloat(), event.partialTicks)
+                    RenderUtils.renderBeaconBeam(x, y, z, color.rgb, color.alpha.toFloat(), event.partialTicks)
                 }
             }
             if (KazzUtils.config.dungeon.waypoints.m7f7.relic.relicText) {
                 checkNotNull(drag)
                 if (!drag.isDestroyed) {
-                    de.kazzutils.utils.RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.relic.relicWaypointText, blockPos, event.partialTicks)
+                    RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.relic.relicWaypointText, blockPos, event.partialTicks)
                 }
             }
         }
@@ -98,7 +99,7 @@ class RelicWaypoints {
             if (KazzUtils.config.dungeon.waypoints.m7f7.relic.cauldronHighlight) {
                 checkNotNull(drag)
                 if (!drag.picked) {
-                    de.kazzutils.utils.RenderUtils.drawCustomBox(pos!!.x.toDouble(), 1.0, pos.y + 1.toDouble(), 1.0, pos.z.toDouble(), 1.0, drag.color, 3f, true)
+                    RenderUtils.drawCustomBox(pos!!.x.toDouble(), 1.0, pos.y + 1.toDouble(), 1.0, pos.z.toDouble(), 1.0, drag.color, 3f, true)
                 }
             }
         }
@@ -106,7 +107,7 @@ class RelicWaypoints {
 
         if (player.posY < 50 && (CatacombsUtils.floor.contains("F7") || CatacombsUtils.inM7) && KazzUtils.config.dungeon.waypoints.m7f7.relic.renderDragonText) {
             for (drag in WitherKingDragons.entries) {
-                de.kazzutils.utils.RenderUtils.renderWaypointText(drag.textColor  ,
+                RenderUtils.renderWaypointText(drag.textColor  ,
                     drag.dragonText,
                     event.partialTicks,
                     KazzUtils.config.dungeon.waypoints.m7f7.relic.dragonTextScale

@@ -1,4 +1,4 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.ui
 
 import de.kazzutils.KazzUtils.Companion.mc
 import net.minecraft.client.gui.FontRenderer
@@ -89,7 +89,7 @@ object RenderUtils {
         val topOffset = bottomOffset + height
         val tessellator = Tessellator.getInstance()
         val worldrenderer = tessellator.worldRenderer
-        mc.textureManager.bindTexture(de.kazzutils.utils.RenderUtils.beaconBeam)
+        mc.textureManager.bindTexture(beaconBeam)
         GL11.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, 10497.0f)
         GL11.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, 10497.0f)
         GlStateManager.disableLighting()
@@ -281,7 +281,7 @@ object RenderUtils {
         GlStateManager.translate(x, y, z)
         GlStateManager.translate(0f, viewer.eyeHeight, 0f)
 
-        de.kazzutils.utils.RenderUtils.drawNametag(str)
+        drawNametag(str)
 
         GlStateManager.rotate(-mc.renderManager.playerViewY, 0.0f, 1.0f, 0.0f)
         GlStateManager.rotate(mc.renderManager.playerViewX, 1.0f, 0.0f, 0.0f)
@@ -290,7 +290,7 @@ object RenderUtils {
         GlStateManager.rotate(-mc.renderManager.playerViewX, 1.0f, 0.0f, 0.0f)
         GlStateManager.rotate(mc.renderManager.playerViewY, 0.0f, 1.0f, 0.0f)
 
-        de.kazzutils.utils.RenderUtils.drawNametag(EnumChatFormatting.YELLOW.toString() + Math.round(dist) + "m")
+        drawNametag(EnumChatFormatting.YELLOW.toString() + Math.round(dist) + "m")
 
         GlStateManager.popMatrix()
 
@@ -321,7 +321,7 @@ object RenderUtils {
         GlStateManager.translate(x, y, z)
         GlStateManager.translate(0f, viewer.eyeHeight, 0f)
         GlStateManager.scale(scale, scale, scale)
-        de.kazzutils.utils.RenderUtils.drawNametag(str)
+        drawNametag(str)
 
         GlStateManager.rotate(-mc.renderManager.playerViewY, 0.0f, 1.0f, 0.0f)
         GlStateManager.rotate(mc.renderManager.playerViewX, 1.0f, 0.0f, 0.0f)
@@ -389,9 +389,9 @@ object RenderUtils {
      */
     fun drawOutlinedBoundingBox(aabb: AxisAlignedBB?, color: Color, width: Float, partialTicks: Float) {
         val render: Entity = mc.renderViewEntity
-        val realX = de.kazzutils.utils.RenderUtils.interpolate(render.posX, render.lastTickPosX, partialTicks)
-        val realY = de.kazzutils.utils.RenderUtils.interpolate(render.posY, render.lastTickPosY, partialTicks)
-        val realZ = de.kazzutils.utils.RenderUtils.interpolate(render.posZ, render.lastTickPosZ, partialTicks)
+        val realX = interpolate(render.posX, render.lastTickPosX, partialTicks)
+        val realY = interpolate(render.posY, render.lastTickPosY, partialTicks)
+        val realZ = interpolate(render.posZ, render.lastTickPosZ, partialTicks)
         GlStateManager.pushMatrix()
         GlStateManager.translate(-realX, -realY, -realZ)
         GlStateManager.disableTexture2D()
@@ -540,7 +540,7 @@ object RenderUtils {
         slices: Int, stacks: Int, rot1: Float, rot2: Float, rot3: Float,
         r: Float, g: Float, b: Float, a: Float, phase: Boolean, linemode: Boolean
     ) {
-        val renderPos = de.kazzutils.utils.RenderUtils.getRenderPos(pos)
+        val renderPos = getRenderPos(pos)
         val x = renderPos.xCoord.toFloat()
         val y = renderPos.yCoord.toFloat()
         val z = renderPos.zCoord.toFloat()

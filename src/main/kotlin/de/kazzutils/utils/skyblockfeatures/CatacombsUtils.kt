@@ -1,7 +1,8 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.skyblockfeatures
 
 import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.data.enumClass.WitherKingDragons
+import de.kazzutils.utils.ChatUtils
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiPlayerTabOverlay
 import net.minecraft.init.Blocks

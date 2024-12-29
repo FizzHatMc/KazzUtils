@@ -1,4 +1,4 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.skyblockfeatures
 
 import net.minecraft.client.Minecraft
 import net.minecraft.inventory.ContainerChest

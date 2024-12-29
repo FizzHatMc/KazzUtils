@@ -1,4 +1,4 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.ui
 
 import net.minecraft.client.renderer.GLAllocation
 import net.minecraft.client.renderer.GlStateManager

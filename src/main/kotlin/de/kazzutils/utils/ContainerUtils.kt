@@ -8,10 +8,19 @@ import net.minecraft.inventory.ContainerChest
 import net.minecraft.inventory.IInventory
 import net.minecraft.inventory.Slot
 import net.minecraft.item.ItemStack
+import net.minecraft.util.IChatComponent
 
 
 object ContainerUtils {
 
+    fun getDisplayName(stack: ItemStack?): String {
+        if (stack == null) {
+            return "Leer"
+        }
+
+        val chatComponent: IChatComponent = stack.chatComponent
+        return chatComponent.unformattedText // Get the plain text from the chat component
+    }
 
     fun getLore(stack: ItemStack?): List<String> {
         val lore: MutableList<String> = ArrayList()

@@ -1,5 +1,6 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.colors
 
+import de.kazzutils.utils.SpecialColour
 import java.awt.Color
 import kotlin.math.max
 
@@ -9,7 +10,7 @@ object ColorUtils {
 
     /** transfer string colors from the config to java.awt.Color */
     fun String.toChromaColor() = Color(toChromaColorInt(), true)
-    fun String.toChromaColorInt() = de.kazzutils.utils.SpecialColour.specialToChromaRGB(this)
+    fun String.toChromaColorInt() = SpecialColour.specialToChromaRGB(this)
 
     fun String.getFirstColorCode() = this.takeIf { it.firstOrNull() == '§' }?.getOrNull(1)
 

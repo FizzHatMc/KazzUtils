@@ -4,7 +4,7 @@ import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.core.structure.GuiElement
 import de.kazzutils.data.farming.GardenXP
-import de.kazzutils.utils.ColorUtils.toChromaColorInt
+import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
 import de.kazzutils.utils.TabUtils
 import de.kazzutils.utils.graphics.ScreenRenderer
 

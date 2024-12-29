@@ -67,7 +67,7 @@ object MelodyProgress {
             //ChatUtils.messageToChat("25: $slot25Color | 34: $slot34Color | 43: $slot43Color")
 
             if(slot25Color.equals("Lime")){
-                sendMessage("$melodyMessage 1/4")
+                ChatUtils.messageToChat("$melodyMessage 1/4")
             }else if(slot34Color.equals("Lime")){
                 ChatUtils.messageToChat("$melodyMessage 2/4")
             }else if(slot43Color.equals("Lime")){
@@ -76,11 +76,6 @@ object MelodyProgress {
         }
     }
 
-    private fun sendMessage(message: String){
-        if(!messageSent){
-            ChatUtils.messageToChat(message)
-        }
-    }
 
     fun getColorFromMetadata(metadata: Int): String {
         return when (metadata) {
