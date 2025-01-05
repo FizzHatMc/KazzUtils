@@ -2,7 +2,7 @@ package de.kazzutils.config.categories.misc;
 
 import com.google.gson.annotations.Expose;
 import de.kazzutils.KazzUtils;
-import de.kazzutils.config.categories.event.mythologicalEvent;
+
 import de.kazzutils.config.categories.misc.feature.*;
 import de.kazzutils.gui.KeyShortcutsGui;
 import de.kazzutils.gui.editing.ElementaEditingGui;
@@ -38,10 +38,7 @@ public class Misc {
     @Accordion
     public PartyCommands partyCommands = new PartyCommands();
 
-    @Expose
-    @ConfigOption(name = "Mythological Event", desc = "")
-    @Accordion
-    public mythologicalEvent mythologicalEvent = new mythologicalEvent();
+
 
     @Expose
     @ConfigOption(name = "Pet Overlay", desc = "")

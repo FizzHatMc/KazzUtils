@@ -17,7 +17,7 @@ class HighlightClass {
         val classPlayerName = KazzUtils.config.dungeon.dungeonClass.enumClass.playerName ?: return
 
         //if (classPlayerName == null) return
-        val highlight = classPlayerName?.let { TabUtils.getPlayerByName(it) } ?: return
+        val highlight = classPlayerName.let { TabUtils.getPlayerByName(it) } ?: return
         if (highlight === mc.thePlayer) return
         if(highlight == null) return
         val boundingBox = highlight.entityBoundingBox

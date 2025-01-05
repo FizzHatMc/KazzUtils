@@ -51,7 +51,7 @@ class CommandManager {
                 "leg" -> rar = "Legendary"
                 "com" -> rar = "Common"
                 "uncom" -> rar = "Uncommon"
-                else -> rar = rarity.replace(rarity[0], rarity[0].toUpperCase())
+                else -> rar = rarity.replace(rarity[0], rarity[0].uppercaseChar())
             }
 
             if(args.size == 3) {
