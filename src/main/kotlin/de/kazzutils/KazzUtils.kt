@@ -6,6 +6,7 @@ import de.kazzutils.config.KazzUtilsConfig
 import de.kazzutils.core.GuiManager
 import de.kazzutils.core.PersistentSave
 import de.kazzutils.data.enumClass.DunClass
+import de.kazzutils.event.ItemDropEvent
 import de.kazzutils.features.chatStuff.ChatCommands
 import de.kazzutils.features.chatStuff.ChatEmotes
 import de.kazzutils.features.deployable.DeployableHud
@@ -32,6 +33,7 @@ import de.kazzutils.features.misc.SkullHider
 import de.kazzutils.features.misc.items.GyroRange
 import de.kazzutils.features.misc.items.RagAxe
 import de.kazzutils.features.museum.MuseumBlockDrop
+import de.kazzutils.handler.EventHandler
 import de.kazzutils.utils.*
 import de.kazzutils.utils.colors.CustomColor
 import de.kazzutils.utils.graphics.ScreenRenderer
@@ -90,7 +92,10 @@ class KazzUtils {
             DeployableHud,
             LividFinder,
             MelodyProgress,
-            MuseumUtils
+            MuseumUtils,
+            EventHandler
+
+
 
         ).forEach(MinecraftForge.EVENT_BUS::register)
     }
@@ -121,6 +126,7 @@ class KazzUtils {
         reg(ChatEmotes())
         reg(MuseumBlockDrop())
         reg(Minesweeper())
+
 
         //reg(MelodyProgress())
     }

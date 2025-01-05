@@ -2,7 +2,6 @@ package de.kazzutils.features.dungeon
 
 import DelayedExecutor
 import de.kazzutils.KazzUtils
-import de.kazzutils.event.GuiContainerEvent
 import de.kazzutils.utils.ChatUtils
 import de.kazzutils.utils.ContainerUtils
 import net.minecraftforge.client.event.GuiOpenEvent
@@ -13,16 +12,6 @@ object MelodyProgress {
 //  25, 34, 43
     var isInInventory = false
     var melodyMessage = "Melody"
-
-
-    @SubscribeEvent
-    fun tryEvent(event: GuiContainerEvent.SlotClickEvent){
-        var data = "Test: "
-
-        //data
-
-        ChatUtils.messageToChat(data)
-    }
 
     @SubscribeEvent
     fun onOpenGui(event: GuiOpenEvent) {

@@ -15,7 +15,7 @@ abstract class KazzUtilsEvent : Event() {
             MinecraftForge.EVENT_BUS.post(this)
         }.onFailure {
             it.printStackTrace()
-            UChat.chat("§cKazzUtils ${KazzUtils.version} caught and logged an ${it::class.simpleName ?: "error"} at ${eventName}.")
+            UChat.chat("§cKazzUtilsV2 ${KazzUtils.version} caught and logged an ${it::class.simpleName ?: "error"} at ${eventName}.")
         }.getOrDefault(isCanceled)
     }
 }

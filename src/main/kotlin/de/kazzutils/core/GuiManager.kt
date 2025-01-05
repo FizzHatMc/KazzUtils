@@ -116,7 +116,7 @@ object GuiManager : PersistentSave(File(KazzUtils.modDir, "guipositions.json")) 
         if (Minecraft.getMinecraft().ingameGUI !is GuiIngameForge) return
         if (event.type != RenderGameOverlayEvent.ElementType.HOTBAR) return
         GlState.pushState()
-        MinecraftForge.EVENT_BUS.post(RenderHUDEvent(event))
+        //MinecraftForge.EVENT_BUS.post(RenderHUDEvent(event))
         GlState.popState()
     }
 
@@ -127,13 +127,13 @@ object GuiManager : PersistentSave(File(KazzUtils.modDir, "guipositions.json")) 
     }
 
     // LabyMod Support
-    @SubscribeEvent
-    fun renderPlayerInfoLabyMod(event: RenderGameOverlayEvent) {
-        if (event.type != null) return
-        GlState.pushState()
-        MinecraftForge.EVENT_BUS.post(RenderHUDEvent(event))
-        GlState.popState()
-    }
+    //@SubscribeEvent
+    //fun renderPlayerInfoLabyMod(event: RenderGameOverlayEvent) {
+    //    if (event.type != null) return
+    //    GlState.pushState()
+    //    MinecraftForge.EVENT_BUS.post(RenderHUDEvent(event))
+    //    GlState.popState()
+    //}
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     fun onRenderHUD(event: RenderHUDEvent) {
