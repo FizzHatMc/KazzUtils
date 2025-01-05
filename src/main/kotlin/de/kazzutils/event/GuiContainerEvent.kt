@@ -5,11 +5,17 @@ import de.kazzutils.KazzUtils.Companion.mc
 import net.minecraft.client.gui.inventory.GuiChest
 import net.minecraft.client.gui.inventory.GuiContainer
 import net.minecraft.inventory.Container
+import net.minecraft.inventory.ContainerChest
 import net.minecraft.inventory.Slot
 import net.minecraft.item.ItemStack
 import net.minecraftforge.fml.common.eventhandler.Cancelable
 
 abstract class GuiContainerEvent(open val gui: GuiContainer, open val container: Container) : KazzUtilsEvent() {
+
+    val chestName: String by lazy {
+        if (container !is ContainerChest) error("Container is not a chest")
+        return@lazy (container as ContainerChest).lowerChestInventory.displayName.unformattedText.trim()
+    }
 
     data class BackgroundDrawnEvent(
         override val gui: GuiContainer,
@@ -93,6 +99,16 @@ abstract class GuiContainerEvent(open val gui: GuiContainer, open val container:
             }
         }
     }
+
+    @Cancelable
+    data class SlotClickEventSkytils(
+        override val gui: GuiContainer,
+        override val container: Container,
+        val slot: Slot?,
+        val slotId: Int,
+        val clickedButton: Int,
+        val clickType: Int
+    ) : GuiContainerEvent(gui, container)
 
     fun clickSlot(slot: Int, windowId: Int? = getWindowId(), mouseButton: Int = 0, mode: Int = 0) {
         windowId ?: return

@@ -52,6 +52,8 @@ object MuseumUtils{
 
     //§c
 
+
+
     private fun getMuseumItems(){
         val items = ContainerUtils.getItemsInOpenChest()
         if(currentInv == "empty") return
@@ -64,9 +66,9 @@ object MuseumUtils{
 
             val clearName = itemName.substring(startIndex = 3).replace("]","").trim()
 
-            if(itemName.contains("§c")) {
+            if(itemName.contains("§c") && itemName != "Close") {
                 missingItems[clearName] = i
-            }else {
+            }else if(itemName != "Close"){
                 collectedItems[clearName] = i
             }
 
