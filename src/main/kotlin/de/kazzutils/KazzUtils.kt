@@ -16,7 +16,6 @@ import de.kazzutils.features.dungeon.F7.CrystalWaypoints
 import de.kazzutils.features.dungeon.F7.TerminalWaypoints
 import de.kazzutils.features.dungeon.M7.RelicWaypoints
 import de.kazzutils.features.events.carnival.Minesweeper
-import de.kazzutils.features.events.carnival.RenderTest
 import de.kazzutils.features.events.mythological.MythoTracker
 import de.kazzutils.features.events.mythological.MythoTrackerHud
 import de.kazzutils.features.farming.contest.ContestHud
@@ -101,7 +100,6 @@ class KazzUtils {
         CommandManager()
         guiManager = GuiManager
 
-        MinecraftForge.EVENT_BUS.register(RenderTest())
 
         /**FEATURES*/
         reg(PlayerClass())

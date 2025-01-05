@@ -31,10 +31,11 @@ class Minesweeper {
     private val bombCounts = HashMap<BlockPos, Int>()
     private val possibleBombs = HashSet<BlockPos>()
     private var lastClickedBlock: BlockPos? = null
+    private var fruitDiggingActive = false
 
     @SubscribeEvent
     fun onMouseEvent(event: MouseEvent) {
-        if (event.button == 0 && event.buttonstate) { // Linksklick
+        if (event.button == 0 && event.buttonstate) {
             val mc = Minecraft.getMinecraft()
             val mop = mc.objectMouseOver
             if (mop != null && mop.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
@@ -42,8 +43,8 @@ class Minesweeper {
                 val world = mc.theWorld
                 if (world != null && world.getBlockState(clickedPos).block === Blocks.sand) {
                     lastClickedBlock = clickedPos
-                    // ***SEHR WICHTIG: Ersetze dies mit der korrekten Hypixel Interaktion!***
-                    // Platzhalter (wahrscheinlich falsch):
+                    // ***CRUCIAL: Replace with correct Hypixel interaction!***
+                    // Placeholder:
                     // Minecraft.getMinecraft().netHandler.addToSendQueue(C08PacketPlayerBlockPlacement(clickedPos, 255, null, 0, 0, 0))
                 }
             }
@@ -53,19 +54,30 @@ class Minesweeper {
     @SubscribeEvent
     fun onClientChatReceived(event: ClientChatReceivedEvent) {
         val message = event.message.unformattedText
+
+        if (message.contains("Fruit Digging") && !fruitDiggingActive) {
+            fruitDiggingActive = true
+            bombCounts.clear() // Clear any old data
+            possibleBombs.clear()
+        }
+
         if (message.startsWith("MINES! There ")) {
             try {
-                val number = message.replace(Regex("[^0-9]"), "")
-                val bombCount = number.toInt()
+                val number = message.replace(Regex("[^0-9]"), "").toInt()
                 lastClickedBlock?.let {
-                    bombCounts[it] = bombCount
+                    bombCounts[it] = number
                     updateHighlights(Minecraft.getMinecraft().theWorld)
                     lastClickedBlock = null
                 }
             } catch (e: NumberFormatException) {
-                // Fehlerbehandlung (protokolliere es zum Debuggen)
-                System.err.println("Fehler beim Parsen der Bombenanzahl: ${e.message}")
+                System.err.println("Error parsing bomb count: ${e.message}")
             }
+        }
+
+        if (message.contains("Fruits Collected") && fruitDiggingActive || message.contains("You earned") && fruitDiggingActive) {
+            fruitDiggingActive = false
+            bombCounts.clear()
+            possibleBombs.clear()
         }
     }
 
@@ -79,41 +91,44 @@ class Minesweeper {
                 for (x in -1..1) {
                     for (z in -1..1) {
                         if (x == 0 && z == 0) continue
-
                         val neighborPos = minedPos.add(x, 0, z)
-                        if (world.getBlockState(neighborPos).block === Blocks.sand) {
+                        if (isSandBlock(world, neighborPos)) { // Use the isSandBlock function
                             possibleBombs.add(neighborPos)
                         }
                     }
                 }
             }
         }
-        for(possibleBomb in HashSet(possibleBombs)){
-            var remove = true
-            for ((minedPos, _) in bombCounts) {
+
+        // Corrected removal logic
+        val bombsToRemove = HashSet<BlockPos>()
+        for (possibleBomb in possibleBombs) {
+            var possibleCount = 0
+            for ((minedPos, bombCount) in bombCounts) {
                 for (x in -1..1) {
                     for (z in -1..1) {
                         if (x == 0 && z == 0) continue
-
                         val neighborPos = minedPos.add(x, 0, z)
-                        if(neighborPos == possibleBomb && bombCounts[minedPos] != 0){
-                            remove = false
+                        if (neighborPos == possibleBomb && bombCount == 0) {
+                            possibleCount++
                         }
                     }
                 }
             }
-            if(remove){
-                possibleBombs.remove(possibleBomb)
+            if (possibleCount > 0) {
+                bombsToRemove.add(possibleBomb)
             }
         }
+        possibleBombs.removeAll(bombsToRemove)
     }
 
-
-
+    private fun isSandBlock(world: World, pos: BlockPos): Boolean {
+        return world.getBlockState(pos).block === Blocks.sand
+    }
 
     @SubscribeEvent
     fun onRenderWorldLast(event: RenderWorldLastEvent) {
-        if (possibleBombs.isNotEmpty()) {
+        if (possibleBombs.isNotEmpty() && fruitDiggingActive) {
             GlStateManager.pushMatrix()
             GlStateManager.enableBlend()
             GlStateManager.disableDepth()
@@ -133,8 +148,8 @@ class Minesweeper {
                 val z = pos.z - Minecraft.getMinecraft().renderManager.viewerPosZ
 
                 // Draw cube outline (using worldRenderer.pos and worldRenderer.color)
-                val red = 0f
-                val green = 1f
+                val red = 1f
+                val green = 0f
                 val blue = 0f
                 val alpha = 0.5f
 
@@ -186,7 +201,5 @@ class Minesweeper {
             GlStateManager.popMatrix()
         }
     }
-
-
 }
 
