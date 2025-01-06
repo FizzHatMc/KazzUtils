@@ -1,6 +1,7 @@
 package de.kazzutils
 
 import de.kazzutils.commands.CommandManager
+import de.kazzutils.commands.impl.ProtectItemCommand
 import de.kazzutils.config.ConfigManager
 import de.kazzutils.config.KazzUtilsConfig
 import de.kazzutils.core.GuiManager
@@ -32,11 +33,15 @@ import de.kazzutils.features.misc.SkullHider
 import de.kazzutils.features.misc.items.GyroRange
 import de.kazzutils.features.misc.items.RagAxe
 import de.kazzutils.features.museum.MuseumBlockDrop
-import de.kazzutils.handler.hook.EntityPlayerSPHook
 import de.kazzutils.handler.EventHandler
+import de.kazzutils.handler.hook.EntityPlayerSPHook
+import de.kazzutils.handler.transformers.AccessorCommandHandler
 import de.kazzutils.utils.*
 import de.kazzutils.utils.colors.CustomColor
 import de.kazzutils.utils.graphics.ScreenRenderer
+import de.kazzutils.utils.randomutils.ChatUtils
+import de.kazzutils.utils.randomutils.TabUtils
+import de.kazzutils.utils.randomutils.TitleUtils
 import de.kazzutils.utils.skyblockfeatures.CatacombsUtils
 import de.kazzutils.utils.skyblockfeatures.MuseumUtils
 import de.kazzutils.utils.ui.SchedRender
@@ -51,11 +56,13 @@ import kotlinx.serialization.modules.SerializersModule
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
 import net.minecraft.entity.item.EntityArmorStand
+import net.minecraftforge.client.ClientCommandHandler
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.entity.living.LivingEvent
 import net.minecraftforge.fml.common.Loader
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
+import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
@@ -63,7 +70,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent
 import java.io.File
 import java.util.*
 
-@Mod(modid = KazzUtils.MOD_ID, version = "1.0.0", useMetadata = true)
+@Mod(modid = KazzUtils.MOD_ID, version = "0.0.2", useMetadata = true)
 class KazzUtils {
 
     @Mod.EventHandler
@@ -95,9 +102,6 @@ class KazzUtils {
             MuseumUtils,
             EventHandler,
             EntityPlayerSPHook
-
-
-
         ).forEach(MinecraftForge.EVENT_BUS::register)
     }
 
@@ -136,6 +140,19 @@ class KazzUtils {
     fun postInit(event: FMLPostInitializationEvent){
         PersistentSave.loadData()
         MuseumUtils.loadData()
+    }
+
+    @Mod.EventHandler
+    fun loadComplete(event: FMLLoadCompleteEvent) {
+        val cch = ClientCommandHandler.instance
+
+        if (cch !is AccessorCommandHandler) throw RuntimeException(
+            "Kazz was unable to mixin to the CommandHandler. Please report this on our Discord at discord.gg/skytils."
+        )
+
+        if (!cch.commands.containsKey("protect")) {
+            cch.registerCommand(ProtectItemCommand)
+        }
     }
 
     @SubscribeEvent

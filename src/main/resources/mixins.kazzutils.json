@@ -12,7 +12,8 @@
     "RenderLivingEntityHelper",
     "MixinOldAnimations",
     "MixinEntityPlayerSP",
-    "MixinGuiContainer"
+    "MixinGuiContainer",
+    "MixinRenderLivingEntity"
 
   ]
 }

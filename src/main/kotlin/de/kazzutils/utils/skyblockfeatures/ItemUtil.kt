@@ -1,8 +1,7 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.skyblockfeatures
 
 import de.kazzutils.data.enumClass.ItemRarity
 import de.kazzutils.data.enumClass.ItemRarity.Companion.RARITY_PATTERN
-import de.kazzutils.utils.skyblockfeatures.ItemUtils
 import gg.essential.universal.wrappers.message.UTextComponent
 import net.minecraft.init.Items
 import net.minecraft.item.ItemStack

@@ -2,7 +2,7 @@ package de.kazzutils.data.protect.impl
 
 import de.kazzutils.KazzUtils
 import de.kazzutils.data.protect.ItemProtectStrategy
-import de.kazzutils.utils.ItemUtil
+import de.kazzutils.utils.skyblockfeatures.ItemUtil
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
 

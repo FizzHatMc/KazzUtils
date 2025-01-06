@@ -1,4 +1,4 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.randomutils
 
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.*

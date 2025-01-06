@@ -18,7 +18,7 @@
 package de.kazzutils.utils.colors
 
 
-import de.kazzutils.utils.MathUtil
+import de.kazzutils.utils.randomutils.MathUtil
 import de.kazzutils.utils.Utils
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.descriptors.PrimitiveKind

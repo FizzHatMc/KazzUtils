@@ -1,6 +1,6 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.randomutils
 
-import kotlin.compareTo
+import de.kazzutils.utils.skyblockfeatures.SimpleTimeMark
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 import kotlin.time.Duration

@@ -1,18 +1,5 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.randomutils
 
-import net.minecraft.client.Minecraft
-import net.minecraft.client.gui.GuiUtilRenderComponents
-import net.minecraft.event.ClickEvent
-import net.minecraft.event.HoverEvent
-import net.minecraft.util.ChatComponentText
-import net.minecraft.util.ChatStyle
-import net.minecraft.util.EnumChatFormatting
-import net.minecraft.util.IChatComponent
-import java.util.Base64
-import java.util.NavigableMap
-import java.util.UUID
-import java.util.function.Predicate
-import java.util.regex.Matcher
 import kotlin.text.contains
 
 object StringUtils {

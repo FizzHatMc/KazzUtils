@@ -2,11 +2,15 @@ package de.kazzutils.features.dungeon.F5
 
 import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc
+import de.kazzutils.annotation.HandleEvent
 import de.kazzutils.data.enumClass.ChatColor
 import de.kazzutils.data.enumClass.ChatColor.Companion.toChatColor
-import de.kazzutils.mixin.RenderLivingEntityHelper
+import de.kazzutils.data.enumClass.IslandType
+import de.kazzutils.event.CheckRenderEntityEvent
+import de.kazzutils.handler.hook.RenderLivingEntityHelper
+import de.kazzutils.utils.randomutils.ChatUtils
 import de.kazzutils.utils.skyblockfeatures.ItemUtils
-import de.kazzutils.utils.TabUtils
+import de.kazzutils.utils.randomutils.TabUtils
 import de.kazzutils.utils.ui.RenderUtils
 import de.kazzutils.utils.ui.withAlpha
 import net.minecraft.block.BlockStainedGlass
@@ -17,6 +21,7 @@ import net.minecraft.entity.item.EntityArmorStand
 import net.minecraft.potion.Potion
 import net.minecraft.util.AxisAlignedBB
 import net.minecraft.util.BlockPos
+import net.minecraft.util.Vec3
 import net.minecraftforge.client.event.RenderLivingEvent
 import net.minecraftforge.client.event.RenderWorldLastEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
@@ -24,21 +29,25 @@ import net.minecraftforge.fml.common.gameevent.TickEvent
 import java.awt.Color
 
 object LividFinder {
+    private val config = KazzUtils.config.dungeon
     private val blockLoc = BlockPos(6,109,43)
     var lividEntity: EntityOtherPlayerMP? = null
     private var lividArmorStand: EntityArmorStand? = null
     private var gotBlinded = false
     private var color : ChatColor? = null
 
+    var livid: Any? = null
+        private set
+
     private fun isCurrentlyBlind() = if (mc.thePlayer.isPotionActive(Potion.blindness)) {
         mc.thePlayer.getActivePotionEffect(Potion.blindness).duration > 10
     } else false
 
     @SubscribeEvent
-    fun onTick(event: TickEvent.ClientTickEvent){
-        if(mc.theWorld == null)return
-        if((TabUtils.area != "Catacombs") || !KazzUtils.config.dungeon.lividFinder ) return
-        if(TabUtils.area != "Catacombs") gotBlinded = false
+    fun onTick(event: TickEvent.ClientTickEvent) {
+        if (mc.theWorld == null) return
+        if ((TabUtils.area != "Catacombs") || !KazzUtils.config.dungeon.lividFinder) return
+        if (TabUtils.area != "Catacombs") gotBlinded = false
 
 
         val isCurrentlyBlind = isCurrentlyBlind()
@@ -79,11 +88,7 @@ object LividFinder {
             newLivid,
             color!!.toColor()!!.withAlpha(30)
         ) { shouldHighlight() }
-
-
-
     }
-
 
     @SubscribeEvent
     fun onRender(event: RenderWorldLastEvent){
@@ -91,11 +96,15 @@ object LividFinder {
         if(getLividAlive() == null)return
         if(!KazzUtils.config.dungeon.lividFinder) return
         RenderUtils.drawOutlinedBoundingBox(getLividAlive()?.entityBoundingBox, Color.RED, 4f,event.partialTicks) ?: return
+        val lividAlive = getLividAlive()
+        val lividCoord = lividAlive?.let { Vec3(lividAlive.posX, it.posY,lividAlive.posZ) }
+        if (lividCoord != null) {
+            RenderUtils.drawLineToEye(lividCoord,Color.RED,event.partialTicks)
+        }
     }
 
-
     @SubscribeEvent
-    fun onRender(event: RenderLivingEvent.Post<*>){
+    fun onRender(event: CheckRenderEntityEvent<Entity>){
         if(ItemUtils.mc.theWorld == null) return
         if(TabUtils.area != "Catacombs") return
         if(!KazzUtils.config.dungeon.lividHider) return
@@ -118,6 +127,7 @@ object LividFinder {
     private fun getLividAlive() = lividEntity?.let {
         if (!it.isDead && it.health > 0.5) it else null
     }
+
 
 
     private inline fun <reified R : Entity> getEntities(): Sequence<R> = getAllEntities().filterIsInstance<R>()

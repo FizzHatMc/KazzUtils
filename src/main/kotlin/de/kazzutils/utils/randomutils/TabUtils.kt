@@ -1,4 +1,4 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.randomutils
 
 import com.google.common.collect.ComparisonChain
 import com.google.common.collect.Ordering

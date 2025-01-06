@@ -5,8 +5,7 @@ import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.data.protect.ItemProtectStrategy
 import de.kazzutils.event.GuiContainerEvent
 import de.kazzutils.event.ItemTossEvent
-import de.kazzutils.utils.ItemUtil
-import de.kazzutils.utils.Utils
+import de.kazzutils.utils.skyblockfeatures.ItemUtil
 import gg.essential.universal.UChat
 import net.minecraft.init.Blocks
 import net.minecraft.inventory.ContainerChest

@@ -2,7 +2,7 @@ package de.kazzutils.features.dungeon
 
 import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc
-import de.kazzutils.utils.TabUtils
+import de.kazzutils.utils.randomutils.TabUtils
 import de.kazzutils.utils.ui.RenderUtils
 import net.minecraftforge.client.event.RenderWorldLastEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent

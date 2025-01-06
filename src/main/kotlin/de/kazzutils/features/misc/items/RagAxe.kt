@@ -3,7 +3,7 @@ package de.kazzutils.features.misc.items
 import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion
 import de.kazzutils.features.mining.StarCultNotif
-import de.kazzutils.utils.*
+import de.kazzutils.utils.randomutils.ChatUtils
 import de.kazzutils.utils.skyblockfeatures.ItemUtils
 import de.kazzutils.utils.skyblockfeatures.ItemUtils.mc
 import net.minecraft.item.ItemStack

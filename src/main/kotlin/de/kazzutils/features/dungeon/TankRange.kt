@@ -1,8 +1,8 @@
 package de.kazzutils.features.dungeon
 
 import de.kazzutils.KazzUtils
-import de.kazzutils.utils.TabUtils
-import de.kazzutils.utils.TabUtils.getPlayerByName
+import de.kazzutils.utils.randomutils.TabUtils
+import de.kazzutils.utils.randomutils.TabUtils.getPlayerByName
 import de.kazzutils.utils.ui.RenderUtils
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.util.BlockPos

@@ -4,7 +4,7 @@ import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.core.structure.GuiElement
 import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
-import de.kazzutils.utils.ContainerUtils
+import de.kazzutils.utils.randomutils.ContainerUtils
 import de.kazzutils.utils.graphics.ScreenRenderer
 import de.kazzutils.utils.ui.RenderUtils
 import net.minecraft.item.ItemStack

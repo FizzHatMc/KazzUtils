@@ -1,21 +1,19 @@
 package de.kazzutils.utils.skyblockfeatures
 
-import DelayedExecutor
+import de.kazzutils.utils.randomutils.DelayedExecutor
 import de.kazzutils.KazzUtils
-import de.kazzutils.features.dungeon.MelodyProgress.melodyMessage
-import de.kazzutils.utils.ChatUtils
-import de.kazzutils.utils.ContainerUtils
-import de.kazzutils.utils.JsonUtils
+import de.kazzutils.utils.randomutils.ChatUtils
+import de.kazzutils.utils.randomutils.ContainerUtils
+import de.kazzutils.utils.randomutils.JsonUtils
 import net.minecraft.item.ItemStack
 import net.minecraftforge.client.event.GuiOpenEvent
-import net.minecraftforge.client.event.GuiScreenEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import java.io.File
 
 
 object MuseumUtils{
     var currentInv = "empty"
-    val path = File(KazzUtils.modDir, "museum.json")
+    val path = File(KazzUtils.modDir, "/trackers/museum.json")
 
 
     @SubscribeEvent
@@ -66,7 +64,7 @@ object MuseumUtils{
                 collectedItems[clearName] = i
             }
 
-            missingItems.forEach { (t, u) -> ChatUtils.messageToChat("$t $u") }
+//            missingItems.forEach { (t, u) -> ChatUtils.messageToChat("$t $u") }
             JsonUtils.saveMapToFile(path.path, "missingItems", missingItems)
             //JsonUtils.saveMapToFile(path.path, "collectedItems", collectedItems)  //Not sure if i need it but i have it lol
 

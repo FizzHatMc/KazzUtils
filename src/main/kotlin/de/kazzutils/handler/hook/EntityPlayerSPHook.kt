@@ -4,7 +4,6 @@ import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.event.AddChatMessageEvent
 import de.kazzutils.event.ItemTossEvent
 import de.kazzutils.event.PacketEvent
-import de.kazzutils.utils.ChatUtils
 import de.kazzutils.utils.Utils
 import net.minecraft.client.settings.KeyBinding
 import net.minecraft.entity.item.EntityItem
@@ -27,7 +26,7 @@ object EntityPlayerSPHook {
         } else if (event.packet is C09PacketHeldItemChange) {
             currentItem = event.packet.slotId
         }
-        ChatUtils.messageToChat("CurrentItem: $currentItem")
+//        ChatUtils.messageToChat("CurrentItem: $currentItem")
     }
 
 }

@@ -1,6 +1,5 @@
 package de.kazzutils.handler.hook
 import de.kazzutils.event.GuiContainerEvent
-import de.kazzutils.utils.ChatUtils
 import net.minecraft.client.gui.inventory.GuiContainer
 import net.minecraft.inventory.Slot
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo

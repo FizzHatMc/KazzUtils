@@ -414,6 +414,27 @@ object RenderUtils {
         return previous + (current - previous) * partialTicks
     }
 
+    fun drawLineToEye(location: Vec3, color: Color, partialTicks : Float) {
+        drawLine(exactPlayerEyeLocation(partialTicks), location, color, partialTicks)
+    }
+
+    fun exactPlayerEyeLocation(partialTicks : Float): Vec3 {
+        val player = mc.thePlayer
+        val add = if (player.isSneaking) Vec3(0.0, 1.54, 0.0) else Vec3(0.0, 1.62, 0.0)
+//        PatcherFixes.onPlayerEyeLine()
+        return exactLocation(player,partialTicks).add(add)
+    }
+
+//    fun exactLocation(entity: Entity) = exactLocation(entity, partialTicks)
+
+    fun exactLocation(entity: Entity, partialTicks: Float): Vec3 {
+        if (entity.isDead) return Vec3(entity.posX, entity.posY, entity.posZ)
+        val x = entity.lastTickPosX + (entity.posX - entity.lastTickPosX) * partialTicks
+        val y = entity.lastTickPosY + (entity.posY - entity.lastTickPosY) * partialTicks
+        val z = entity.lastTickPosZ + (entity.posZ - entity.lastTickPosZ) * partialTicks
+        return Vec3(x, y, z)
+    }
+
     fun drawLine(pos1: Vec3, pos2: Vec3, color: Color, partialTicks: Float) {
         val render: Entity = mc.renderViewEntity
         val realX = render.lastTickPosX + (render.posX - render.lastTickPosX) * partialTicks
