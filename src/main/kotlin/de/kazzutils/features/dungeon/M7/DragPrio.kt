@@ -205,11 +205,11 @@ class DragPrio {
         }
     }
 
-    // Resetting search on world load
-    //@SubscribeEvent
-    //fun onWorldChange(event: WorldChangeEvent) {
-    //   search = false
-    //}
+//     Resetting search on world load
+    @SubscribeEvent
+    fun onWorldChange(event: WorldChangeEvent) {
+       search = false
+    }
 
 }
 object DragInfo {

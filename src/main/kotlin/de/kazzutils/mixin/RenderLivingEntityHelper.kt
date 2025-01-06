@@ -1,5 +1,6 @@
 package de.kazzutils.mixin
 
+import de.kazzutils.event.WorldChangeEvent
 import net.minecraft.entity.EntityLivingBase
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import org.spongepowered.asm.mixin.Mixin
@@ -7,12 +8,12 @@ import org.spongepowered.asm.mixin.Mixin
 @Mixin
 class RenderLivingEntityHelper{
 
-    //@SubscribeEvent
-    //fun onWorldChange(event: WorldChangeEvent) {
-    //    entityColorMap.clear()
-    //    entityColorCondition.clear()
-    //    entityNoHurTimeCondition.clear()
-    //}
+    @SubscribeEvent
+    fun onWorldChange(event: WorldChangeEvent) {
+        entityColorMap.clear()
+        entityColorCondition.clear()
+        entityNoHurTimeCondition.clear()
+    }
 
     companion object {
 
