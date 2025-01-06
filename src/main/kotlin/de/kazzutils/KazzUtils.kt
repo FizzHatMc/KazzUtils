@@ -32,6 +32,8 @@ import de.kazzutils.features.misc.SkullHider
 import de.kazzutils.features.misc.items.GyroRange
 import de.kazzutils.features.misc.items.RagAxe
 import de.kazzutils.features.museum.MuseumBlockDrop
+import de.kazzutils.handler.hook.EntityPlayerSPHook
+import de.kazzutils.handler.EventHandler
 import de.kazzutils.utils.*
 import de.kazzutils.utils.colors.CustomColor
 import de.kazzutils.utils.graphics.ScreenRenderer
@@ -90,7 +92,11 @@ class KazzUtils {
             DeployableHud,
             LividFinder,
             MelodyProgress,
-            MuseumUtils
+            MuseumUtils,
+            EventHandler,
+            EntityPlayerSPHook
+
+
 
         ).forEach(MinecraftForge.EVENT_BUS::register)
     }
@@ -121,6 +127,7 @@ class KazzUtils {
         reg(ChatEmotes())
         reg(MuseumBlockDrop())
         reg(Minesweeper())
+
 
         //reg(MelodyProgress())
     }

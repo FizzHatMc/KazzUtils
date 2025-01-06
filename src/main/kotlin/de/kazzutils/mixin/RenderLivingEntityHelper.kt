@@ -12,7 +12,6 @@ class RenderLivingEntityHelper{
     fun onWorldChange(event: WorldChangeEvent) {
         entityColorMap.clear()
         entityColorCondition.clear()
-
         entityNoHurTimeCondition.clear()
     }
 

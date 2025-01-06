@@ -126,7 +126,7 @@ object GuiManager : PersistentSave(File(KazzUtils.modDir, "guipositions.json")) 
         titleDisplayTicks = ticks
     }
 
-    // LabyMod Support
+//     LabyMod Support
     @SubscribeEvent
     fun renderPlayerInfoLabyMod(event: RenderGameOverlayEvent) {
         if (event.type != null) return

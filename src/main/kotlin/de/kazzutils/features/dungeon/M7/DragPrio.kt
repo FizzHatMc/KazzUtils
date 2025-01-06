@@ -1,7 +1,6 @@
 package de.kazzutils.features.dungeon.M7
 
 import de.kazzutils.KazzUtils
-import de.kazzutils.event.WorldChangeEvent
 import de.kazzutils.utils.ChatUtils
 import de.kazzutils.utils.TabUtils
 import de.kazzutils.utils.ui.RenderUtils
@@ -206,10 +205,10 @@ class DragPrio {
         }
     }
 
-    // Resetting search on world load
+//     Resetting search on world load
     @SubscribeEvent
     fun onWorldChange(event: WorldChangeEvent) {
-        search = false
+       search = false
     }
 
 }
