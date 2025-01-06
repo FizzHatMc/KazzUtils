@@ -3,14 +3,10 @@ package de.kazzutils.features.museum
 
 import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.data.protect.ItemProtectStrategy
-import de.kazzutils.data.protect.impl.MuseumStrategy
 import de.kazzutils.event.GuiContainerEvent
-import de.kazzutils.event.ItemDropEvent
 import de.kazzutils.event.ItemTossEvent
-import de.kazzutils.utils.ChatUtils
 import de.kazzutils.utils.ItemUtil
 import de.kazzutils.utils.Utils
-import de.kazzutils.utils.skyblockfeatures.MuseumUtils
 import gg.essential.universal.UChat
 import net.minecraft.init.Blocks
 import net.minecraft.inventory.ContainerChest
@@ -22,20 +18,35 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 class MuseumBlockDrop {
 
     @SubscribeEvent
-    fun onDrop(event : ItemTossEvent){
-        val protectedItemNames = MuseumUtils.getMissingItems().keys.toList()
-        protectedItemNames.forEach { name ->
-            if(event.item.displayName.contains(name, true)) {
-                notifyStopped(event,"dropping", MuseumStrategy)
+    fun onCloseWindow(event: GuiContainerEvent.CloseWindowEvent) {
+//        if (!Utils.inSkyblock) return
+        if (mc.thePlayer.inventory.itemStack != null) {
+            val item = mc.thePlayer.inventory.itemStack
+            val extraAttr = ItemUtil.getExtraAttributes(item)
+            val strategy = ItemProtectStrategy.findValidStrategy(item, extraAttr, ItemProtectStrategy.ProtectType.USERCLOSEWINDOW) ?: return
+            for (slot in event.container.inventorySlots) {
+                if (slot.inventory !== mc.thePlayer.inventory || slot.hasStack || !slot.isItemValid(item)) continue
+                mc.playerController.windowClick(event.container.windowId, slot.slotNumber, 0, 0, mc.thePlayer)
+                notifyStopped(null, "dropping", strategy)
+                return
             }
+            notifyStopped(null, "closing the window on", strategy)
+            event.isCanceled = true
         }
     }
 
 
+    @SubscribeEvent
+    fun onDropItem(event: ItemTossEvent) {
+//        if (!Utils.inSkyblock) return
+        val strategy = ItemProtectStrategy.findValidStrategy(event.item, ItemUtil.getExtraAttributes(event.item), ItemProtectStrategy.ProtectType.HOTBARDROPKEY) ?: return
+        notifyStopped(event, "dropping", strategy)
+    }
+
 
     @SubscribeEvent
     fun onSlotClick(event: GuiContainerEvent.SlotClickEvent) {
-        if (!Utils.inSkyblock) return
+//        if (!Utils.inSkyblock) return
         if (event.container is ContainerChest && ItemProtectStrategy.isAnyToggled()) {
             val inv = event.container.lowerChestInventory
             val chestName = event.chestName
