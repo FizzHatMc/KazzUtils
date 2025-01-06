@@ -5,6 +5,7 @@ import gg.essential.universal.UChat
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.eventhandler.Event
 
+
 abstract class KazzUtilsEvent : Event() {
     val eventName by lazy {
         this::class.simpleName

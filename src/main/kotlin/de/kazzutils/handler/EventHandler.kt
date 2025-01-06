@@ -13,26 +13,16 @@ object EventHandler {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     fun onItemDrop(event: ItemDropEvent) {
+        ItemDropEvent(event.player,event.droppedItem).postAndCatch()
         ChatUtils.messageToChat("Test")
         val protectedItems = MuseumUtils.getMissingItems()
         val droppedItemStack = event.droppedItem
         if (droppedItemStack != null) {
             val droppedItem = droppedItemStack.item
             if (protectedItems.containsKey(droppedItem.registryName.toString())) {
-                event.canceled = true
+                event.isCanceled = true
             }
         }
     }
 
-    @SubscribeEvent
-    fun onPlayerInteract(event: PlayerInteractEvent) {
-        if (event.action == Action.RIGHT_CLICK_BLOCK) {
-            val stack = event.entityPlayer.heldItem // Get the held item
-            if(stack != null) {
-                val dropEvent = ItemDropEvent(event.entityPlayer, stack)
-                MinecraftForge.EVENT_BUS.post(dropEvent)
-                println("Test Event Fired! Canceled: ${dropEvent.isCanceled}")
-            }
-        }
-    }
 }
