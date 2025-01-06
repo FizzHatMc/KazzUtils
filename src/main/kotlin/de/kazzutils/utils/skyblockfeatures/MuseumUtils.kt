@@ -17,16 +17,10 @@ object MuseumUtils{
     var currentInv = "empty"
     val path = File(KazzUtils.modDir, "museum.json")
 
-    @SubscribeEvent
-    fun onMouseClick(event: GuiScreenEvent.MouseInputEvent) {
-        if(currentInv == "empty") return
-
-    }
 
     @SubscribeEvent
     fun onOpenGui(event: GuiOpenEvent) {
         if(KazzUtils.mc.thePlayer == null) return
-        melodyMessage = KazzUtils.config.dungeon.melody.melodyChatMessageChat
         if(event.gui!=null) {
             DelayedExecutor.runDelayed(100) {
                 updateInventory()

@@ -35,4 +35,8 @@ public class Items {
     @ConfigEditorBoolean
     public boolean ragAxe = false;
 
+    @Expose
+    @ConfigOption(name = "Protect Items", desc = "")
+    @ConfigEditorBoolean
+    public boolean protectItems = false;
 }

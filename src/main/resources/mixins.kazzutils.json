@@ -10,7 +10,9 @@
     "MixinEntityLivingBase",
     "MixinItemRenderer",
     "RenderLivingEntityHelper",
-    "MixinOldAnimations"
+    "MixinOldAnimations",
+    "MixinEntityPlayerSP",
+    "MixinGuiContainer"
 
   ]
 }
