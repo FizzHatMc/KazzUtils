@@ -60,9 +60,9 @@ object NumberUtils {
         return sum + nums[nums.size - 1]
     }
 
-    fun getNumber(str: String): Int? {
-        return if (str.matches("\\d+".toRegex())) {
-            str.toInt()
+    fun String.getNumber(): Int? {
+        return if (this.matches("\\d+".toRegex())) {
+            this.toInt()
         } else {
             null
         }

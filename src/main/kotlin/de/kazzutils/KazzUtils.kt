@@ -94,9 +94,6 @@ class KazzUtils {
             MelodyProgress,
             MuseumUtils,
             EventHandler
-
-
-
         ).forEach(MinecraftForge.EVENT_BUS::register)
     }
 
@@ -104,7 +101,6 @@ class KazzUtils {
     fun preInit(event: FMLPreInitializationEvent) {
         CommandManager()
         guiManager = GuiManager
-
 
         /**FEATURES*/
         reg(PlayerClass())
@@ -153,6 +149,7 @@ class KazzUtils {
 
         if(ticks % 2 == 0L) {
             TabUtils.parseTabEntries()
+            NewTabUtils.parseTabEntries()
             CatacombsUtils.checkCata()
             DunClass.setupName()
         }//each 1/10th second
