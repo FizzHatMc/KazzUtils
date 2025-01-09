@@ -149,7 +149,7 @@ class KazzUtils {
 
         if(ticks % 2 == 0L) {
             TabUtils.parseTabEntries()
-            NewTabUtils.parseTabEntries()
+//            NewTabUtils.parseTabEntries()
             CatacombsUtils.checkCata()
             DunClass.setupName()
         }//each 1/10th second

@@ -1,11 +1,10 @@
 package de.kazzutils.mixin
 
 import net.minecraft.entity.EntityLivingBase
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import org.spongepowered.asm.mixin.Mixin
 
 @Mixin
-class RenderLivingEntityHelper{
+class RenderLivingEntityHelper2{
 
     //@SubscribeEvent
     //fun onWorldChange(event: WorldChangeEvent) {

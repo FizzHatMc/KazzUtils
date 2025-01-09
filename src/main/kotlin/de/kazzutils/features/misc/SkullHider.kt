@@ -32,7 +32,7 @@ class SkullHider {
             val skullTexture = head.getSkullTexture()
             if(KazzUtils.config.dungeon.hideSoulweaverGloves){
                 if (skullTexture != null) {
-                    ChatUtils.messageToChat(skullTexture)
+//                    ChatUtils.messageToChat(skullTexture)
                 }
                 if(skullTexture == soulWeaverHider) event.isCanceled = true
             }

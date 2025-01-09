@@ -4,7 +4,7 @@ import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.data.enumClass.ChatColor
 import de.kazzutils.data.enumClass.ChatColor.Companion.toChatColor
-import de.kazzutils.mixin.RenderLivingEntityHelper
+import de.kazzutils.mixin.RenderLivingEntityHelper2
 import de.kazzutils.utils.skyblockfeatures.ItemUtils
 import de.kazzutils.utils.TabUtils
 import de.kazzutils.utils.ui.RenderUtils
@@ -75,7 +75,7 @@ object LividFinder {
         if (!newLivid.name.contains("Livid")) return
 
         lividEntity = newLivid
-        RenderLivingEntityHelper.setEntityColorWithNoHurtTime(
+        RenderLivingEntityHelper2.setEntityColorWithNoHurtTime(
             newLivid,
             color!!.toColor()!!.withAlpha(30)
         ) { shouldHighlight() }
