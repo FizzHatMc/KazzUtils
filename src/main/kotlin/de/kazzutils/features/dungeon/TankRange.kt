@@ -3,7 +3,7 @@ package de.kazzutils.features.dungeon
 import de.kazzutils.KazzUtils
 import de.kazzutils.utils.TabUtils
 import de.kazzutils.utils.TabUtils.getPlayerByName
-import de.kazzutils.utils.ui.RenderUtils
+import de.kazzutils.utils.RenderUtils
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.util.BlockPos
 import net.minecraft.util.Vec3

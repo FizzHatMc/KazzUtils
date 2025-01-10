@@ -6,7 +6,7 @@ import de.kazzutils.data.m7.coords.TermCoords
 import de.kazzutils.utils.skyblockfeatures.CatacombsUtils
 import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
 import de.kazzutils.utils.TabUtils
-import de.kazzutils.utils.ui.RenderUtils
+import de.kazzutils.utils.RenderUtils
 import net.minecraft.client.Minecraft
 import net.minecraft.util.BlockPos
 import net.minecraftforge.client.event.RenderWorldLastEvent

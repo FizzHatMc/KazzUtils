@@ -6,7 +6,7 @@ import de.kazzutils.core.structure.GuiElement
 import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
 import de.kazzutils.utils.TabUtils
 import de.kazzutils.utils.graphics.ScreenRenderer
-import de.kazzutils.utils.ui.RenderUtils
+import de.kazzutils.utils.RenderUtils
 import net.minecraft.util.EnumChatFormatting
 
 object SoulflowNotif {

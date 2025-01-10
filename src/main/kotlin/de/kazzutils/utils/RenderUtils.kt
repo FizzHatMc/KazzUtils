@@ -1,6 +1,6 @@
-package de.kazzutils.utils.ui
+package de.kazzutils.utils
 
-import de.kazzutils.KazzUtils.Companion.mc
+import de.kazzutils.KazzUtils
 import net.minecraft.client.gui.FontRenderer
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.client.renderer.RenderGlobal
@@ -8,13 +8,17 @@ import net.minecraft.client.renderer.Tessellator
 import net.minecraft.client.renderer.entity.RenderManager
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats
 import net.minecraft.entity.Entity
-import net.minecraft.util.*
+import net.minecraft.util.AxisAlignedBB
+import net.minecraft.util.BlockPos
+import net.minecraft.util.EnumChatFormatting
+import net.minecraft.util.MathHelper
+import net.minecraft.util.ResourceLocation
+import net.minecraft.util.Vec3
 import org.lwjgl.opengl.GL11
 import java.awt.Color
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
-
 
 object RenderUtils {
 
@@ -31,7 +35,7 @@ object RenderUtils {
         thickness: Float,
         phase: Boolean
     ) {
-        val renderManager: RenderManager = mc.renderManager
+        val renderManager: RenderManager = KazzUtils.Companion.mc.renderManager
         val tessellator = Tessellator.getInstance()
         val worldRenderer = Tessellator.getInstance().worldRenderer
 
@@ -89,7 +93,7 @@ object RenderUtils {
         val topOffset = bottomOffset + height
         val tessellator = Tessellator.getInstance()
         val worldrenderer = tessellator.worldRenderer
-        mc.textureManager.bindTexture(beaconBeam)
+        KazzUtils.Companion.mc.textureManager.bindTexture(beaconBeam)
         GL11.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, 10497.0f)
         GL11.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, 10497.0f)
         GlStateManager.disableLighting()
@@ -98,7 +102,7 @@ object RenderUtils {
         GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA, 1, 1, 0)
         GlStateManager.enableBlend()
         GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, 1, 0)
-        val time = mc.theWorld.totalWorldTime + partialTicks.toDouble()
+        val time = KazzUtils.Companion.mc.theWorld.totalWorldTime + partialTicks.toDouble()
         val d1 = MathHelper.func_181162_h(
             -time * 0.2 - MathHelper.floor_double(-time * 0.1)
                 .toDouble()
@@ -262,7 +266,7 @@ object RenderUtils {
 
         GlStateManager.pushMatrix()
 
-        val viewer: Entity = mc.renderViewEntity
+        val viewer: Entity = KazzUtils.Companion.mc.renderViewEntity
         val viewerX = viewer.lastTickPosX + (viewer.posX - viewer.lastTickPosX) * partialTicks
         val viewerY = viewer.lastTickPosY + (viewer.posY - viewer.lastTickPosY) * partialTicks
         val viewerZ = viewer.lastTickPosZ + (viewer.posZ - viewer.lastTickPosZ) * partialTicks
@@ -283,12 +287,12 @@ object RenderUtils {
 
         drawNametag(str)
 
-        GlStateManager.rotate(-mc.renderManager.playerViewY, 0.0f, 1.0f, 0.0f)
-        GlStateManager.rotate(mc.renderManager.playerViewX, 1.0f, 0.0f, 0.0f)
+        GlStateManager.rotate(-KazzUtils.Companion.mc.renderManager.playerViewY, 0.0f, 1.0f, 0.0f)
+        GlStateManager.rotate(KazzUtils.Companion.mc.renderManager.playerViewX, 1.0f, 0.0f, 0.0f)
 
         GlStateManager.translate(0f, -0.25f, 0f)
-        GlStateManager.rotate(-mc.renderManager.playerViewX, 1.0f, 0.0f, 0.0f)
-        GlStateManager.rotate(mc.renderManager.playerViewY, 0.0f, 1.0f, 0.0f)
+        GlStateManager.rotate(-KazzUtils.Companion.mc.renderManager.playerViewX, 1.0f, 0.0f, 0.0f)
+        GlStateManager.rotate(KazzUtils.Companion.mc.renderManager.playerViewY, 0.0f, 1.0f, 0.0f)
 
         drawNametag(EnumChatFormatting.YELLOW.toString() + Math.round(dist) + "m")
 
@@ -302,7 +306,7 @@ object RenderUtils {
 
         GlStateManager.pushMatrix()
 
-        val viewer: Entity = mc.renderViewEntity
+        val viewer: Entity = KazzUtils.Companion.mc.renderViewEntity
         val viewerX = viewer.lastTickPosX + (viewer.posX - viewer.lastTickPosX) * partialTicks
         val viewerY = viewer.lastTickPosY + (viewer.posY - viewer.lastTickPosY) * partialTicks
         val viewerZ = viewer.lastTickPosZ + (viewer.posZ - viewer.lastTickPosZ) * partialTicks
@@ -323,12 +327,12 @@ object RenderUtils {
         GlStateManager.scale(scale, scale, scale)
         drawNametag(str)
 
-        GlStateManager.rotate(-mc.renderManager.playerViewY, 0.0f, 1.0f, 0.0f)
-        GlStateManager.rotate(mc.renderManager.playerViewX, 1.0f, 0.0f, 0.0f)
+        GlStateManager.rotate(-KazzUtils.Companion.mc.renderManager.playerViewY, 0.0f, 1.0f, 0.0f)
+        GlStateManager.rotate(KazzUtils.Companion.mc.renderManager.playerViewX, 1.0f, 0.0f, 0.0f)
 
         GlStateManager.translate(0f, -0.25f, 0f)
-        GlStateManager.rotate(-mc.renderManager.playerViewX, 1.0f, 0.0f, 0.0f)
-        GlStateManager.rotate(mc.renderManager.playerViewY, 0.0f, 1.0f, 0.0f)
+        GlStateManager.rotate(-KazzUtils.Companion.mc.renderManager.playerViewX, 1.0f, 0.0f, 0.0f)
+        GlStateManager.rotate(KazzUtils.Companion.mc.renderManager.playerViewY, 0.0f, 1.0f, 0.0f)
 
 
         //drawNametag(EnumChatFormatting.YELLOW.toString()+Math.round(dist)+"m");
@@ -344,13 +348,13 @@ object RenderUtils {
      * @author Moulberry
      */
     fun drawNametag(str: String?) {
-        val fontrenderer: FontRenderer = mc.fontRendererObj
+        val fontrenderer: FontRenderer = KazzUtils.Companion.mc.fontRendererObj
         val f = 1.6f
         val f1 = 0.016666668f * f
         GlStateManager.pushMatrix()
         GL11.glNormal3f(0.0f, 1.0f, 0.0f)
-        GlStateManager.rotate(-mc.renderManager.playerViewY, 0.0f, 1.0f, 0.0f)
-        GlStateManager.rotate(mc.renderManager.playerViewX, 1.0f, 0.0f, 0.0f)
+        GlStateManager.rotate(-KazzUtils.Companion.mc.renderManager.playerViewY, 0.0f, 1.0f, 0.0f)
+        GlStateManager.rotate(KazzUtils.Companion.mc.renderManager.playerViewX, 1.0f, 0.0f, 0.0f)
         GlStateManager.scale(-f1, -f1, f1)
         GlStateManager.disableLighting()
         GlStateManager.depthMask(false)
@@ -388,7 +392,7 @@ object RenderUtils {
      * @author Desco
      */
     fun drawOutlinedBoundingBox(aabb: AxisAlignedBB?, color: Color, width: Float, partialTicks: Float) {
-        val render: Entity = mc.renderViewEntity
+        val render: Entity = KazzUtils.Companion.mc.renderViewEntity
         val realX = interpolate(render.posX, render.lastTickPosX, partialTicks)
         val realY = interpolate(render.posY, render.lastTickPosY, partialTicks)
         val realZ = interpolate(render.posZ, render.lastTickPosZ, partialTicks)
@@ -415,7 +419,7 @@ object RenderUtils {
     }
 
     fun drawLine(pos1: Vec3, pos2: Vec3, color: Color, partialTicks: Float) {
-        val render: Entity = mc.renderViewEntity
+        val render: Entity = KazzUtils.Companion.mc.renderViewEntity
         val realX = render.lastTickPosX + (render.posX - render.lastTickPosX) * partialTicks
         val realY = render.lastTickPosY + (render.posY - render.lastTickPosY) * partialTicks
         val realZ = render.lastTickPosZ + (render.posZ - render.lastTickPosZ) * partialTicks
@@ -460,7 +464,7 @@ object RenderUtils {
         val tessellator = Tessellator.getInstance()
         val worldrenderer = tessellator.worldRenderer
 
-        val player: Entity = mc.renderViewEntity
+        val player: Entity = KazzUtils.Companion.mc.renderViewEntity
         val playerX = player.lastTickPosX + (player.posX - player.lastTickPosX) * partialTicks
         val playerY = player.lastTickPosY + (player.posY - player.lastTickPosY) * partialTicks
         val playerZ = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * partialTicks
@@ -529,9 +533,9 @@ object RenderUtils {
     }
 
     private fun getRenderPos(vec: Vec3): Vec3 {
-        val renderPosX: Double = mc.renderManager.viewerPosX
-        val renderPosY: Double = mc.renderManager.viewerPosY
-        val renderPosZ: Double = mc.renderManager.viewerPosZ
+        val renderPosX: Double = KazzUtils.Companion.mc.renderManager.viewerPosX
+        val renderPosY: Double = KazzUtils.Companion.mc.renderManager.viewerPosY
+        val renderPosZ: Double = KazzUtils.Companion.mc.renderManager.viewerPosZ
         return Vec3(vec.xCoord - renderPosX, vec.yCoord - renderPosY, vec.zCoord - renderPosZ)
     }
 
@@ -588,10 +592,10 @@ object RenderUtils {
 
 
     fun drawTitle(title: String, subtitle: String, color: EnumChatFormatting){
-        mc.ingameGUI.displayTitle(color.toString() + title, color.toString()+subtitle, 0,3,0)
+        KazzUtils.Companion.mc.ingameGUI.displayTitle(color.toString() + title, color.toString()+subtitle, 0,3,0)
     }
     fun drawTitle(title: String, color: EnumChatFormatting){
-        mc.ingameGUI.displayTitle(color.toString() + title, "", 0,3,0)
+        KazzUtils.Companion.mc.ingameGUI.displayTitle(color.toString() + title, "", 0,3,0)
     }
 
 

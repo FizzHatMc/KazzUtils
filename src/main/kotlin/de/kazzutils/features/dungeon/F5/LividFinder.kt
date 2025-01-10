@@ -7,7 +7,7 @@ import de.kazzutils.data.enumClass.ChatColor.Companion.toChatColor
 import de.kazzutils.mixin.RenderLivingEntityHelper
 import de.kazzutils.utils.skyblockfeatures.ItemUtils
 import de.kazzutils.utils.TabUtils
-import de.kazzutils.utils.ui.RenderUtils
+import de.kazzutils.utils.RenderUtils
 import de.kazzutils.utils.ui.withAlpha
 import net.minecraft.block.BlockStainedGlass
 import net.minecraft.client.entity.EntityOtherPlayerMP

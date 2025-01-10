@@ -10,7 +10,7 @@ import de.kazzutils.utils.skyblockfeatures.CatacombsUtils
 import de.kazzutils.utils.ChatUtils
 import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
 import de.kazzutils.utils.TabUtils
-import de.kazzutils.utils.ui.RenderUtils
+import de.kazzutils.utils.RenderUtils
 import net.minecraft.client.entity.EntityPlayerSP
 import net.minecraft.entity.Entity
 import net.minecraft.util.BlockPos
