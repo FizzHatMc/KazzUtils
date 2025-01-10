@@ -1,6 +1,7 @@
 package de.kazzutils.utils
 
 import de.kazzutils.KazzUtils
+import de.kazzutils.KazzUtils.Companion.mc
 import net.minecraft.client.gui.FontRenderer
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.client.renderer.RenderGlobal
