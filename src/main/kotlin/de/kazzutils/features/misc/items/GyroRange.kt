@@ -1,9 +1,9 @@
 package de.kazzutils.features.misc.items
 
 import de.kazzutils.KazzUtils
+import de.kazzutils.utils.RenderUtils
 import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
 import de.kazzutils.utils.skyblockfeatures.ItemUtils
-import de.kazzutils.utils.RenderUtils
 import net.minecraft.client.Minecraft
 import net.minecraft.item.ItemStack
 import net.minecraft.util.Vec3

@@ -21,8 +21,8 @@ import de.kazzutils.KazzUtils
 import de.kazzutils.core.structure.GuiElement
 import de.kazzutils.event.RenderHUDEvent
 import de.kazzutils.gui.editing.VanillaEditingGui
-import de.kazzutils.utils.ui.GlState
 import de.kazzutils.utils.toast.Toast
+import de.kazzutils.utils.ui.GlState
 import gg.essential.elementa.ElementaVersion
 import gg.essential.elementa.components.Window
 import gg.essential.elementa.dsl.pixels

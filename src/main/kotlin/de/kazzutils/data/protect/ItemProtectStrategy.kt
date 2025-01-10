@@ -1,10 +1,10 @@
 package de.kazzutils.data.protect
 
-import net.minecraft.item.ItemStack
-import net.minecraft.nbt.NBTTagCompound
-import de.kazzutils.data.protect.impl.StarredItemStrategy
 import de.kazzutils.data.protect.impl.FavoriteStrategy
 import de.kazzutils.data.protect.impl.MuseumStrategy
+import de.kazzutils.data.protect.impl.StarredItemStrategy
+import net.minecraft.item.ItemStack
+import net.minecraft.nbt.NBTTagCompound
 
 abstract class ItemProtectStrategy {
 

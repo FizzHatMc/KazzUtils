@@ -18,8 +18,8 @@
 
 package de.kazzutils.core.structure
 
-import de.kazzutils.utils.ui.RenderUtil
 import de.kazzutils.utils.colors.CommonColors
+import de.kazzutils.utils.ui.RenderUtil
 import gg.essential.universal.UResolution
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiButton

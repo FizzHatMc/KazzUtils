@@ -2,7 +2,6 @@ package de.kazzutils.features.events.mythological
 
 import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc
-import de.kazzutils.config.categories.event.mythologicalEvent
 import de.kazzutils.core.structure.GuiElement
 import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
 import de.kazzutils.utils.graphics.ScreenRenderer

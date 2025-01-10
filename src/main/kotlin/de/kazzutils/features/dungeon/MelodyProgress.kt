@@ -1,9 +1,9 @@
 package de.kazzutils.features.dungeon
 
-import de.kazzutils.utils.randomutils.DelayedExecutor
 import de.kazzutils.KazzUtils
 import de.kazzutils.utils.randomutils.ChatUtils
 import de.kazzutils.utils.randomutils.ContainerUtils
+import de.kazzutils.utils.randomutils.DelayedExecutor
 import net.minecraftforge.client.event.GuiOpenEvent
 import net.minecraftforge.client.event.GuiScreenEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent

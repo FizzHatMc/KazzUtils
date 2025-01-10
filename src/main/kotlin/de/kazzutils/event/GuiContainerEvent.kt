@@ -2,12 +2,12 @@ package de.kazzutils.event
 
 
 import de.kazzutils.KazzUtils.Companion.mc
+import de.kazzutils.event.GuiContainerEvent.ClickType.entries
 import net.minecraft.client.gui.inventory.GuiChest
 import net.minecraft.client.gui.inventory.GuiContainer
 import net.minecraft.inventory.Container
 import net.minecraft.inventory.ContainerChest
 import net.minecraft.inventory.Slot
-import net.minecraft.item.ItemStack
 import net.minecraftforge.fml.common.eventhandler.Cancelable
 
 abstract class GuiContainerEvent(open val gui: GuiContainer, open val container: Container) : KazzUtilsEvent() {

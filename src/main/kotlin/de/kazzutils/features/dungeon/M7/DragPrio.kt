@@ -4,7 +4,7 @@ import de.kazzutils.KazzUtils
 import de.kazzutils.event.WorldChangeEvent
 import de.kazzutils.utils.randomutils.ChatUtils
 import de.kazzutils.utils.randomutils.TabUtils
-import de.kazzutils.utils.ui.RenderUtils
+import de.kazzutils.utils.RenderUtils
 import net.minecraft.network.play.server.S2APacketParticles
 import net.minecraft.util.EnumChatFormatting
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent

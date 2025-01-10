@@ -2,7 +2,6 @@ package de.kazzutils.config.categories.misc;
 
 import com.google.gson.annotations.Expose;
 import de.kazzutils.KazzUtils;
-
 import de.kazzutils.config.categories.misc.feature.*;
 import de.kazzutils.gui.KeyShortcutsGui;
 import de.kazzutils.gui.editing.ElementaEditingGui;

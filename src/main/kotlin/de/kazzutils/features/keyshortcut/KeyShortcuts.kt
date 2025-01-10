@@ -2,6 +2,7 @@ package de.kazzutils.features.keyshortcut
 
 import de.kazzutils.KazzUtils
 import de.kazzutils.core.PersistentSave
+import de.kazzutils.features.keyshortcut.KeyShortcuts.Modifiers.entries
 import de.kazzutils.utils.randomutils.ChatUtils
 import gg.essential.universal.UKeyboard
 import kotlinx.serialization.Serializable

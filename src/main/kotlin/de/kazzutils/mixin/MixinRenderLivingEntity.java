@@ -1,6 +1,7 @@
 package de.kazzutils.mixin;
 
 import de.kazzutils.event.render.EntityRenderLayersEvent;
+import de.kazzutils.handler.hook.RenderLivingEntityHelper;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RendererLivingEntity;
@@ -12,7 +13,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import de.kazzutils.handler.hook.RenderLivingEntityHelper;
 
 @Mixin(value = RendererLivingEntity.class, priority = 1001)
 public abstract class MixinRenderLivingEntity<T extends EntityLivingBase> extends Render<T> {

@@ -1,9 +1,8 @@
 package de.kazzutils.utils.skyblockfeatures
 
-import de.kazzutils.utils.randomutils.DelayedExecutor
 import de.kazzutils.KazzUtils
-import de.kazzutils.utils.randomutils.ChatUtils
 import de.kazzutils.utils.randomutils.ContainerUtils
+import de.kazzutils.utils.randomutils.DelayedExecutor
 import de.kazzutils.utils.randomutils.JsonUtils
 import net.minecraft.item.ItemStack
 import net.minecraftforge.client.event.GuiOpenEvent

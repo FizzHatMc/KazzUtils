@@ -2,16 +2,13 @@ package de.kazzutils.features.dungeon.F5
 
 import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc
-import de.kazzutils.annotation.HandleEvent
 import de.kazzutils.data.enumClass.ChatColor
 import de.kazzutils.data.enumClass.ChatColor.Companion.toChatColor
-import de.kazzutils.data.enumClass.IslandType
 import de.kazzutils.event.CheckRenderEntityEvent
 import de.kazzutils.handler.hook.RenderLivingEntityHelper
-import de.kazzutils.utils.randomutils.ChatUtils
-import de.kazzutils.utils.skyblockfeatures.ItemUtils
+import de.kazzutils.utils.RenderUtils
 import de.kazzutils.utils.randomutils.TabUtils
-import de.kazzutils.utils.ui.RenderUtils
+import de.kazzutils.utils.skyblockfeatures.ItemUtils
 import de.kazzutils.utils.ui.withAlpha
 import net.minecraft.block.BlockStainedGlass
 import net.minecraft.client.entity.EntityOtherPlayerMP
@@ -22,7 +19,6 @@ import net.minecraft.potion.Potion
 import net.minecraft.util.AxisAlignedBB
 import net.minecraft.util.BlockPos
 import net.minecraft.util.Vec3
-import net.minecraftforge.client.event.RenderLivingEvent
 import net.minecraftforge.client.event.RenderWorldLastEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.TickEvent

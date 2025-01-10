@@ -1,6 +1,5 @@
 package de.kazzutils.features.chatStuff
 
-import gg.essential.elementa.utils.withIndex
 import java.util.*
 
 object RequiredPetXp {

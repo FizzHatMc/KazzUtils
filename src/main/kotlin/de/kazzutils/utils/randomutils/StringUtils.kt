@@ -1,7 +1,5 @@
 package de.kazzutils.utils.randomutils
 
-import kotlin.text.contains
-
 object StringUtils {
     private val whiteSpaceResetPattern = "^(?:\\s|§r)*|(?:\\s|§r)*$".toPattern()
     private val whiteSpacePattern = "^\\s*|\\s*$".toPattern()

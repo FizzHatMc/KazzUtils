@@ -1,5 +1,8 @@
 package de.kazzutils.data.enumClass
 
+import de.kazzutils.data.enumClass.IslandType.entries
+
+
 enum class IslandType(val displayName: String) {
     // TODO USE SH-REPO (for displayName only)
     PRIVATE_ISLAND("Private Island"),

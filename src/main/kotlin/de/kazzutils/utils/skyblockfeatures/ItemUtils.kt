@@ -1,6 +1,5 @@
 package de.kazzutils.utils.skyblockfeatures
 
-import de.kazzutils.data.enumClass.ChatColor
 import net.minecraft.client.Minecraft
 import net.minecraft.inventory.ContainerChest
 import net.minecraft.item.ItemStack

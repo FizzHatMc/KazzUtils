@@ -36,7 +36,7 @@ import de.kazzutils.features.museum.MuseumBlockDrop
 import de.kazzutils.handler.EventHandler
 import de.kazzutils.handler.hook.EntityPlayerSPHook
 import de.kazzutils.handler.transformers.AccessorCommandHandler
-import de.kazzutils.utils.*
+import de.kazzutils.utils.Utils
 import de.kazzutils.utils.colors.CustomColor
 import de.kazzutils.utils.graphics.ScreenRenderer
 import de.kazzutils.utils.randomutils.ChatUtils
