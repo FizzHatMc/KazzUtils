@@ -5,6 +5,7 @@ import gg.essential.universal.UChat
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.eventhandler.Event
 
+
 abstract class KazzUtilsEvent : Event() {
     val eventName by lazy {
         this::class.simpleName
@@ -15,7 +16,7 @@ abstract class KazzUtilsEvent : Event() {
             MinecraftForge.EVENT_BUS.post(this)
         }.onFailure {
             it.printStackTrace()
-            UChat.chat("§cKazzUtils ${KazzUtils.version} caught and logged an ${it::class.simpleName ?: "error"} at ${eventName}.")
+            UChat.chat("§cKazzUtilsV2 ${KazzUtils.version} caught and logged an ${it::class.simpleName ?: "error"} at ${eventName}.")
         }.getOrDefault(isCanceled)
     }
 }

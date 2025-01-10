@@ -1,6 +1,6 @@
 package de.kazzutils.data.enumClass
 
-import de.kazzutils.utils.TabUtils
+import de.kazzutils.utils.randomutils.TabUtils
 
 
 enum class DunClass(

@@ -25,6 +25,8 @@ abstract class GuiContainerEvent(open val gui: GuiContainer, open val container:
         val partialTicks: Float,
     ) : GuiContainerEvent(gui, container)
 
+
+
     /*
     @Cancelable
     data class PreDraw(
@@ -55,14 +57,14 @@ abstract class GuiContainerEvent(open val gui: GuiContainer, open val container:
         GuiContainerEvent(gui, container) {
 
         @Cancelable
-        data class GuiContainerDrawSlotPre(
+        data class Pre(
             override val gui: GuiContainer,
             override val container: Container,
             override val slot: Slot,
         ) :
             DrawSlotEvent(gui, container, slot)
 
-        data class GuiContainerDrawSlotPost(
+        data class Post(
             override val gui: GuiContainer,
             override val container: Container,
             override val slot: Slot,
@@ -78,30 +80,9 @@ abstract class GuiContainerEvent(open val gui: GuiContainer, open val container:
         val partialTicks: Float,
     ) : GuiContainerEvent(gui, container)
 
+
     @Cancelable
     data class SlotClickEvent(
-        override val gui: GuiContainer,
-        override val container: Container,
-        val item: ItemStack?,
-        val slot: Slot?,
-        val slotId: Int,
-        val clickedButton: Int,
-        @Deprecated("old", ReplaceWith("clickTypeEnum"))
-        val clickType: Int,
-        val clickTypeEnum: ClickType? = ClickType.getTypeById(clickType),
-    ) : GuiContainerEvent(gui, container) {
-
-        fun makePickblock() {
-            if (this.clickedButton == 2 && this.clickTypeEnum == ClickType.MIDDLE) return
-            slot?.slotNumber?.let { slotNumber ->
-                clickSlot(slotNumber, container.windowId, 2, 3)
-                isCanceled = true
-            }
-        }
-    }
-
-    @Cancelable
-    data class SlotClickEventSkytils(
         override val gui: GuiContainer,
         override val container: Container,
         val slot: Slot?,

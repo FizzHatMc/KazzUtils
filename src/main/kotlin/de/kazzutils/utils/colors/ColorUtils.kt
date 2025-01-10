@@ -1,6 +1,6 @@
 package de.kazzutils.utils.colors
 
-import de.kazzutils.utils.SpecialColour
+import de.kazzutils.utils.randomutils.SpecialColour
 import java.awt.Color
 import kotlin.math.max
 

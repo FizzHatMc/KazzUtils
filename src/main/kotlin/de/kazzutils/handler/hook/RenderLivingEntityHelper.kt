@@ -1,4 +1,4 @@
-package de.kazzutils.mixin
+package de.kazzutils.handler.hook
 
 import de.kazzutils.event.WorldChangeEvent
 import net.minecraft.entity.EntityLivingBase
@@ -12,7 +12,6 @@ class RenderLivingEntityHelper{
     fun onWorldChange(event: WorldChangeEvent) {
         entityColorMap.clear()
         entityColorCondition.clear()
-
         entityNoHurTimeCondition.clear()
     }
 
@@ -51,6 +50,7 @@ class RenderLivingEntityHelper{
             removeNoHurtTime(entity)
         }
 
+        @JvmStatic
         fun <T : EntityLivingBase> internalSetColorMultiplier(entity: T): Int {
             if (entityColorMap.containsKey(entity)) {
                 val condition = entityColorCondition[entity]!!
@@ -61,6 +61,8 @@ class RenderLivingEntityHelper{
             return 0
         }
 
+
+        @JvmStatic
         fun <T : EntityLivingBase> internalChangeHurtTime(entity: T): Int {
             run {
                 val condition = entityNoHurTimeCondition[entity] ?: return@run

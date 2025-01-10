@@ -7,10 +7,10 @@ import de.kazzutils.data.enumClass.WitherKingDragons
 import de.kazzutils.data.m7.coords.CauldronCoords
 import de.kazzutils.data.m7.coords.RelicCoords
 import de.kazzutils.utils.skyblockfeatures.CatacombsUtils
-import de.kazzutils.utils.ChatUtils
+import de.kazzutils.utils.randomutils.ChatUtils
 import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
-import de.kazzutils.utils.TabUtils
-import de.kazzutils.utils.RenderUtils
+import de.kazzutils.utils.randomutils.TabUtils
+import de.kazzutils.utils.ui.RenderUtils
 import net.minecraft.client.entity.EntityPlayerSP
 import net.minecraft.entity.Entity
 import net.minecraft.util.BlockPos

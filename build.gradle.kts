@@ -77,6 +77,8 @@ dependencies {
 
     annotationProcessor("com.google.code.gson:gson:2.10.1")
     annotationProcessor("com.google.guava:guava:33.3.1-jre")
+//    annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.0-beta.4")
+    shadowImpl("io.github.llamalad7:mixinextras-common:0.5.0-beta.4")
     //implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     shadowImpl("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3") {
         exclude(group = "org.jetbrains.kotlin")
@@ -204,6 +206,7 @@ tasks.shadowJar {
     // If you want to include other dependencies and shadow them, you can relocate them in here
     relocate("io.github.moulberry.moulconfig", "$baseGroup.deps.moulconfig")
     relocate("moe.nea.libautoupdate", "$baseGroup.deps.libautoupdate")
+    relocate("com.llamalad7.mixinextras", "$baseGroup.deps.mixinextras")
     //relocate("gg.essential.vigilance", "gg.skytils.vigilance")
 }
 
