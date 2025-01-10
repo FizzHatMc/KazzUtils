@@ -90,22 +90,23 @@ object NewTabUtils {
                     area = "Catacombs"
                 }
 
-//                trim.contains("Garden Level:") -> {
-//                    val lvlAndPercent = trim.split(':')[1]
-//                    val lvl = lvlAndPercent.split("(")[0].trim()
-//                    val percent = lvlAndPercent.split("(")[1].replace(")","")
-//                    val lvlAsInt = lvl.getNumber() ?: run {
-//                        if(!lvl.contains("XV")){
-//                            gardenLevel = NumberUtils.toInteger(lvl)
-//                            gardenPercent = trim.substring(trim.indexOf("(") + 1, trim.indexOf(")") - 1).toDouble()
-//                        }else{
-//                            gardenLevel = NumberUtils.toInteger("XV")
-//                        }
-//                    }
-//
-//
-////                    ChatUtils.messageToChat("Split: $lvlAndPercent | $lvl | $percent")
-//                }
+                trim.contains("Garden Level:") -> {
+                    val lvlAndPercent = trim.split(':')[1]
+                    val lvl = lvlAndPercent.split("(")[0].trim()
+                    val hasPercent = lvlAndPercent.contains("(")
+                    val percent = if(hasPercent) lvlAndPercent.trim().substring(1,lvlAndPercent.length-2) else "N/A"
+                    val lvlAsInt = lvl.getNumber() ?: run {
+                        if(!lvl.contains("XV")){
+                            gardenLevel = NumberUtils.toInteger(lvl)
+                            gardenPercent = trim.substring(trim.indexOf("(") + 1, trim.indexOf(")") - 1).toDouble()
+                        }else{
+                            gardenLevel = NumberUtils.toInteger("XV")
+                        }
+                    }
+
+
+                    ChatUtils.messageToChat("Split: $lvlAndPercent | $lvl | $percent")
+                }
 
                 line.contains("(Archer") -> {
                     val archerName = line.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[1]

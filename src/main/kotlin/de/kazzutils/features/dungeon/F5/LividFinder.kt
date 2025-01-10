@@ -4,7 +4,9 @@ import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.data.enumClass.ChatColor
 import de.kazzutils.data.enumClass.ChatColor.Companion.toChatColor
+import de.kazzutils.mixin.RenderLivingEntityHelper
 import de.kazzutils.mixin.RenderLivingEntityHelper2
+import de.kazzutils.mixin.RenderLivingEntityHelper2.Companion.setEntityColorWithNoHurtTime
 import de.kazzutils.utils.skyblockfeatures.ItemUtils
 import de.kazzutils.utils.TabUtils
 import de.kazzutils.utils.ui.RenderUtils
@@ -75,13 +77,10 @@ object LividFinder {
         if (!newLivid.name.contains("Livid")) return
 
         lividEntity = newLivid
-        RenderLivingEntityHelper2.setEntityColorWithNoHurtTime(
+        setEntityColorWithNoHurtTime(
             newLivid,
             color!!.toColor()!!.withAlpha(30)
         ) { shouldHighlight() }
-
-
-
     }
 
 
@@ -90,7 +89,7 @@ object LividFinder {
         if(mc.theWorld == null)return
         if(getLividAlive() == null)return
         if(!KazzUtils.config.dungeon.lividFinder) return
-        RenderUtils.drawOutlinedBoundingBox(getLividAlive()?.entityBoundingBox, Color.RED, 4f,event.partialTicks) ?: return
+        RenderUtils.drawOutlinedBoundingBox(getLividAlive()?.entityBoundingBox, Color.RED, 4f,event.partialTicks)
     }
 
 
