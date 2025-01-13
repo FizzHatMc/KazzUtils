@@ -198,21 +198,21 @@ class DragPrio {
         search = true
     }
 
-//    @SubscribeEvent
-//    fun onPacketRecievedEvent(event: MainreceivePacketEvent<*,*>) {
-//        if(!Utils.inSkyblock) return
-//        if(!CatacombsUtils.inM7) return
-//        //TODO: Is crashing right now??
-//        if(event.packet is S2APacketParticles){
-//            if (search && event.packet.particleType.name == "ENCHANTMENT_TABLE") {
-//                checkBlockPos(
-//                    event.packet.xCoordinate.toInt(),
-//                    event.packet.yCoordinate.toInt(),
-//                    event.packet.zCoordinate.toInt()
-//                )
-//            }
-//        }
-//    }
+    @SubscribeEvent
+    fun onPacketRecievedEvent(event: MainreceivePacketEvent<*,*>) {
+        if(!Utils.inSkyblock) return
+        if(!CatacombsUtils.inM7) return
+        //TODO: Is crashing right now??
+        if(event.packet is S2APacketParticles){
+            if (search && event.packet.particleType.name == "ENCHANTMENT_TABLE") {
+                checkBlockPos(
+                    event.packet.xCoordinate.toInt(),
+                    event.packet.yCoordinate.toInt(),
+                    event.packet.zCoordinate.toInt()
+                )
+            }
+        }
+    }
 
 //     Resetting search on world load
     @SubscribeEvent
