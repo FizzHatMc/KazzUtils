@@ -8,12 +8,11 @@
   "client": [
     "MixinEntity",
     "MixinEntityLivingBase",
-    "MixinItemRenderer",
-    "RenderLivingEntityHelper",
-    "MixinOldAnimations",
     "MixinEntityPlayerSP",
     "MixinGuiContainer",
-    "MixinRenderLivingEntity"
-
+    "MixinItemRenderer",
+    "MixinOldAnimations",
+    "MixinRenderLivingEntity",
+    "MixinRenderManager"
   ]
 }

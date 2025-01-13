@@ -1,6 +1,6 @@
 package de.kazzutils.mixin;
 
-import de.kazzutils.event.render.EntityRenderLayersEvent;
+import de.kazzutils.event.EntityRenderLayersEvent;
 import de.kazzutils.handler.hook.RenderLivingEntityHelper;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;

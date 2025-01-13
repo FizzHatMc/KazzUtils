@@ -1,6 +1,5 @@
-package de.kazzutils.event.render
+package de.kazzutils.event
 
-import de.kazzutils.event.KazzUtilsEvent
 import net.minecraft.entity.Entity
 import net.minecraftforge.fml.common.eventhandler.Cancelable
 

@@ -1,10 +1,14 @@
 package de.kazzutils.features.misc
 
 import de.kazzutils.KazzUtils
+import de.kazzutils.event.CheckRenderEntityEvent
+import de.kazzutils.utils.Utils
 import de.kazzutils.utils.randomutils.ChatUtils
 import de.kazzutils.utils.randomutils.TabUtils
 import de.kazzutils.utils.skyblockfeatures.ItemUtils.getSkullTexture
 import de.kazzutils.utils.skyblockfeatures.ItemUtils.mc
+import net.minecraft.entity.Entity
+import net.minecraft.entity.item.EntityArmorStand
 import net.minecraft.item.ItemStack
 import net.minecraftforge.client.event.RenderLivingEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
@@ -20,24 +24,28 @@ class SkullHider {
     private val damageOrbTexture = "eyJ0aW1lc3RhbXAiOjE1NzQ5NTEzMTkwNDQsInByb2ZpbGVJZCI6IjE5MjUyMWI0ZWZkYjQyNWM4OTMxZjAyYTg0OTZlMTFiIiwicHJvZmlsZU5hbWUiOiJTZXJpYWxpemFibGUiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2FiODZkYTJlMjQzYzA1ZGMwODk4YjBjYzVkM2U2NDg3NzE3MzE3N2UwYTIzOTQ0MjVjZWMxMDAyNTljYjQ1MjYifX19"
     private val healerFairyTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTZjM2UzMWNmYzY2NzMzMjc1YzQyZmNmYjVkOWE0NDM0MmQ2NDNiNTVjZDE0YzljNzdkMjczYTIzNTIifX19"
 
-
+/*
     @SubscribeEvent
-    fun onRender(event: RenderLivingEvent.Post<*>){
-        if(mc.theWorld == null || true) return
-        if(TabUtils.area == "") return
-        val entity = event.entity ?: return
-        var head: ItemStack?
-        if(entity.inventory.size>4){
-            head = entity.inventory[4]
-            val skullTexture = head.getSkullTexture()
-            if(KazzUtils.config.dungeon.hideSoulweaverGloves){
-                if (skullTexture != null) {
-                    ChatUtils.messageToChat(skullTexture)
-                }
-                if(skullTexture == soulWeaverHider) event.isCanceled = true
+    fun onRender(event: CheckRenderEntityEvent<Entity>){
+        if (!Utils.inSkyblock) return
+
+        val config = KazzUtils.config
+        val entity = event.entity
+
+        if(entity !is EntityArmorStand) return
+
+        val head = entity.getStandHelmet() ?: return
+        val skulTexture = head?.getSkullTexture()
+        if(config.dungeon.hideSoulweaverGloves){
+            if(skulTexture == soulWeaverHider){
+                event.isCanceled = true
+                return
             }
         }
-
-
     }
+
+ */
+
+    fun EntityArmorStand.getStandHelmet(): ItemStack? =
+        this.getEquipmentInSlot(4)
 }

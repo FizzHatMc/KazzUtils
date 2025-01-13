@@ -6,6 +6,8 @@ import de.kazzutils.data.protect.ItemProtectStrategy
 import de.kazzutils.event.GuiContainerEvent
 import de.kazzutils.event.ItemTossEvent
 import de.kazzutils.utils.skyblockfeatures.ItemUtil
+import de.kazzutils.utils.Utils
+import de.kazzutils.utils.skyblockfeatures.CatacombsUtils
 import gg.essential.universal.UChat
 import net.minecraft.init.Blocks
 import net.minecraft.inventory.ContainerChest
@@ -18,7 +20,7 @@ class MuseumBlockDrop {
 
     @SubscribeEvent
     fun onCloseWindow(event: GuiContainerEvent.CloseWindowEvent) {
-//        if (!Utils.inSkyblock) return
+        if (!Utils.inSkyblock) return
         if (mc.thePlayer.inventory.itemStack != null) {
             val item = mc.thePlayer.inventory.itemStack
             val extraAttr = ItemUtil.getExtraAttributes(item)
@@ -37,7 +39,8 @@ class MuseumBlockDrop {
 
     @SubscribeEvent
     fun onDropItem(event: ItemTossEvent) {
-//        if (!Utils.inSkyblock) return
+        if (!Utils.inSkyblock) return
+        if (CatacombsUtils.inDungeon()) return
         val strategy = ItemProtectStrategy.findValidStrategy(event.item, ItemUtil.getExtraAttributes(event.item), ItemProtectStrategy.ProtectType.HOTBARDROPKEY) ?: return
         notifyStopped(event, "dropping", strategy)
     }
@@ -45,7 +48,7 @@ class MuseumBlockDrop {
 
     @SubscribeEvent
     fun onSlotClick(event: GuiContainerEvent.SlotClickEvent) {
-//        if (!Utils.inSkyblock) return
+        if (!Utils.inSkyblock) return
         if (event.container is ContainerChest && ItemProtectStrategy.isAnyToggled()) {
             val inv = event.container.lowerChestInventory
             val chestName = event.chestName

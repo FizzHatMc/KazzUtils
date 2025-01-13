@@ -2,7 +2,7 @@
   {
     "modid": "kazzutils",
     "name": "KazzUtils",
-    "description": "A Utility mod for the Mini game Skyblock on the Minecraft Server Hypixel. This is a Remake of the Mod KazzUtils also made by me. I plan on using this from now on as i want to code in Kotlin. Credits towards hannibal2 as he Provided the Template for this Mod.",
+    "description": "Utility Mod for Hypixel Skyblock. This mod uses Features programmed by Skytils, Skyhanni, Skyblock Addons and Dulkir. Credits goes towards them. \n(I also have made my own features but big props to them <3)",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "",
@@ -10,7 +10,7 @@
     "authorList": [
       "RealKazz"
     ],
-    "credits": "",
+    "credits": "Dulkit, Skytils, SkyHanni, Skyblock Addons",
     "logoFile": "",
     "screenshots": [],
     "dependencies": []

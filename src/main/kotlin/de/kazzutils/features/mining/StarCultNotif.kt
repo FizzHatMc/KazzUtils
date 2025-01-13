@@ -31,7 +31,7 @@ object StarCultNotif {
 
                 ChatUtils.messageToChat(EnumChatFormatting.BLUE.toString() + "---------------------------------")
                 ChatUtils.messageToChat(EnumChatFormatting.RED.toString() + "------------STAR CULT------------")
-                ChatUtils.messageToChat(EnumChatFormatting.BLUE.toString() + "--------------------------------")
+                ChatUtils.messageToChat(EnumChatFormatting.BLUE.toString() + "---------------------------------")
 
                 mc.ingameGUI.displayTitle("Star Cult","",0,2,0)
                 world.playSound(player.posX, player.posY, player.posZ, "random.orb", 1f, 1f, false)

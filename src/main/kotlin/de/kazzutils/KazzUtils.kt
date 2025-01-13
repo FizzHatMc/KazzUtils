@@ -78,6 +78,7 @@ class KazzUtils {
         configManager = ConfigManager()
         MinecraftForge.EVENT_BUS.register(configManager)
 
+        /**OBJECTS*/
         arrayOf(
             this,
             guiManager,
@@ -109,7 +110,6 @@ class KazzUtils {
     fun preInit(event: FMLPreInitializationEvent) {
         CommandManager()
         guiManager = GuiManager
-
 
         /**FEATURES*/
         reg(PlayerClass())
@@ -160,7 +160,6 @@ class KazzUtils {
         if(event.entity is EntityArmorStand) DeployableManager.instance.detectDeployables(event.entity as EntityArmorStand)
     }
 
-
     private var ticks = 0L
 
     @SubscribeEvent
@@ -177,9 +176,6 @@ class KazzUtils {
         if(ticks % 20 == 0L) {
             if(config.mining.starCult) StarCultNotif.checkCult()
             Utils.checkSkyblock()
-
-
-
         }//each second
 
         if (displayScreen != null) {
@@ -226,9 +222,6 @@ class KazzUtils {
         val config: KazzUtilsConfig
             get() = configManager.config ?: error("config is null")
     }
-
-
-
 
     private fun reg(obj: Any){
         MinecraftForge.EVENT_BUS.register(obj)

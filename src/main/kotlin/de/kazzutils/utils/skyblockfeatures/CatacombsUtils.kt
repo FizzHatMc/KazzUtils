@@ -21,6 +21,17 @@ class CatacombsUtils {
         var inM7: Boolean = false
         var floor: String = "n"
 
+        fun inDungeon() : Boolean {
+            val scoreboard: List<String> = de.kazzutils.handler.ScoreboardHandler.getSidebarLines()
+            for (s in scoreboard) {
+                val sCleaned: String = de.kazzutils.handler.ScoreboardHandler.cleanSB(s)
+                if (sCleaned.contains("The Catacombs")) {
+                    return true
+                }
+            }
+            return false
+        }
+
         fun checkCata() {
             val scoreboard: List<String> = de.kazzutils.handler.ScoreboardHandler.getSidebarLines()
             for (s in scoreboard) {

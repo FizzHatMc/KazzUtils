@@ -53,7 +53,7 @@ object LividFinder {
         } else if (isCurrentlyBlind) return
 
 
-        val blockColor = mc.theWorld.getBlockState(blockLoc).getValue(BlockStainedGlass.COLOR)
+        val blockColor = mc.theWorld.getBlockState(blockLoc).getValue(BlockStainedGlass.COLOR) ?: return
         color = blockColor.toChatColor()
 
         val color = color
