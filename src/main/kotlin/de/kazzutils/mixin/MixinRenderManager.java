@@ -16,6 +16,8 @@ public class MixinRenderManager {
     private void shouldRender(Entity entity, ICamera camera, double camX, double camY, double camZ, CallbackInfoReturnable<Boolean> cir) {
         if (new CheckRenderEntityEvent<>(entity, camera, camX, camY, camZ).postAndCatch()) {
             cir.setReturnValue(false);
+        }else{
+            System.out.println("Failed to check render entity");
         }
     }
 }
