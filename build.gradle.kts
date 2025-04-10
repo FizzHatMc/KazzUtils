@@ -4,14 +4,13 @@ plugins {
     idea
     java
 
-
-    id("gg.essential.defaults") version "0.3.0"
+    //id("gg.essential.defaults") version "0.3.0"
     id("dev.architectury.architectury-pack200") version "0.1.3"
     id("com.github.johnrengelman.shadow") version "8.1.1"
     kotlin("jvm") version "1.9.0"
     kotlin("plugin.serialization") version "1.9.22"
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
-    id("gg.essential.loom") version "0.10.0.+"
+    id("gg.essential.loom")
 }
 
 //Constants:
@@ -47,7 +46,7 @@ repositories {
     maven("https://repo.nea.moe/releases")
     maven("https://maven.notenoughupdates.org/releases")
     maven("https://repo.essential.gg/repository/maven-public")
-    maven("https://maven.essential.gg/")
+    //maven("https://maven.essential.gg/")
     //maven("https://repo.essential.gg/repository/maven-public")
 }
 
@@ -56,7 +55,7 @@ val shadowImpl: Configuration by configurations.creating {
 }
 
 val shadowModImpl: Configuration by configurations.creating {
-    configurations.modImplementation.get().extendsFrom(this)
+    configurations.kmodImplementation.get().extendsFrom(this)
 }
 
 val devenvMod: Configuration by configurations.creating {
