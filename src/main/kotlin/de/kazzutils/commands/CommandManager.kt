@@ -3,12 +3,14 @@ package de.kazzutils.commands
 import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.commands.SimpleCommand.ProcessCommandRunnable
+import de.kazzutils.features.chatStuff.RequiredPetXp
 import de.kazzutils.features.mining.StarCultNotif
 import de.kazzutils.gui.KeyShortcutsGui
 import de.kazzutils.gui.editing.ElementaEditingGui
-import de.kazzutils.utils.ChatUtils
+import de.kazzutils.utils.randomutils.ChatUtils
 import net.minecraft.command.ICommandSender
 import net.minecraft.util.BlockPos
+import net.minecraft.util.ChatComponentText
 import net.minecraftforge.client.ClientCommandHandler
 
 class CommandManager {
@@ -38,6 +40,48 @@ class CommandManager {
 
 
             }
+            if(args.isEmpty())KazzUtils.configManager.openConfigGui()
+        }
+        //TODO: Learn how to add Forced Args, example: /calcpet rarity (options being leg, epic, rare, uncommon, common) endlvl
+        registerCommand("calcpet"){ args ->
+            val rarity = args.firstOrNull().toString()
+            var rar = ""
+
+            when (rarity) {
+                "leg" -> rar = "Legendary"
+                "com" -> rar = "Common"
+                "uncom" -> rar = "Uncommon"
+                else -> rar = rarity.replace(rarity[0], rarity[0].uppercaseChar())
+            }
+
+            if(args.size == 3) {
+                val startLvl = args[1].toInt()
+                val endLvl = args[2].toInt()
+
+                val reqXp =  RequiredPetXp.getRequiredPetLvl(rar, startLvl, endLvl)
+
+                val test = ChatUtils.addColorCodeReturnComponent("Pet XP Required for $rar: ", "aqua")
+                val test2 = ChatUtils.addColorCodeReturnComponent(ChatUtils.formatNumber(reqXp), "gold")
+                val test3 = ChatComponentText(test.unformattedText + test2.unformattedText)
+
+
+
+                ChatUtils.messageToChat(test3)
+            }else if(args.size == 2){
+                val endLvl = args[1].toInt()
+                val reqXp = RequiredPetXp.getRequiredPetLvl(rar, endLvl)
+
+                val test = ChatUtils.addColorCodeReturnComponent("Pet XP Required for $rar: ", "aqua")
+                val test2 = ChatUtils.addColorCodeReturnComponent(ChatUtils.formatNumber(reqXp), "gold")
+                val test3 = ChatComponentText(test.unformattedText + test2.unformattedText)
+
+
+
+                ChatUtils.messageToChat(test3)
+
+            }
+
+
             if(args.isEmpty())KazzUtils.configManager.openConfigGui()
         }
         /*

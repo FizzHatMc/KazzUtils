@@ -1,8 +1,8 @@
 package de.kazzutils.features.combat
 
 import de.kazzutils.KazzUtils.Companion.mc
-import de.kazzutils.utils.ChatUtils
-import de.kazzutils.utils.ItemUtils
+import de.kazzutils.utils.randomutils.ChatUtils
+import de.kazzutils.utils.skyblockfeatures.ItemUtils
 import net.minecraft.item.ItemStack
 import net.minecraftforge.client.event.RenderLivingEvent
 import net.minecraftforge.client.event.sound.PlaySoundEvent

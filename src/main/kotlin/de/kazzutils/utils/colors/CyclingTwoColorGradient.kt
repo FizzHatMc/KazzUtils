@@ -18,7 +18,7 @@
 package de.kazzutils.utils.colors
 
 import de.kazzutils.utils.Utils.colorFromString
-import de.kazzutils.utils.bindColor
+import de.kazzutils.utils.ui.bindColor
 import java.awt.Color
 import kotlin.math.min
 

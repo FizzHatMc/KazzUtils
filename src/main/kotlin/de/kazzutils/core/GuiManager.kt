@@ -21,8 +21,8 @@ import de.kazzutils.KazzUtils
 import de.kazzutils.core.structure.GuiElement
 import de.kazzutils.event.RenderHUDEvent
 import de.kazzutils.gui.editing.VanillaEditingGui
-import de.kazzutils.utils.GlState
 import de.kazzutils.utils.toast.Toast
+import de.kazzutils.utils.ui.GlState
 import gg.essential.elementa.ElementaVersion
 import gg.essential.elementa.components.Window
 import gg.essential.elementa.dsl.pixels
@@ -126,7 +126,7 @@ object GuiManager : PersistentSave(File(KazzUtils.modDir, "guipositions.json")) 
         titleDisplayTicks = ticks
     }
 
-    // LabyMod Support
+//     LabyMod Support
     @SubscribeEvent
     fun renderPlayerInfoLabyMod(event: RenderGameOverlayEvent) {
         if (event.type != null) return
@@ -139,7 +139,7 @@ object GuiManager : PersistentSave(File(KazzUtils.modDir, "guipositions.json")) 
     fun onRenderHUD(event: RenderHUDEvent) {
 
         if (Minecraft.getMinecraft().currentScreen is VanillaEditingGui) return
-        mc.mcProfiler.startSection("SkytilsHUD")
+        mc.mcProfiler.startSection("KazzUtilsHUD")
         gui.draw(UMatrixStack.Compat.get())
         for ((_, element) in elements) {
             mc.mcProfiler.startSection(element.name)
@@ -151,7 +151,7 @@ object GuiManager : PersistentSave(File(KazzUtils.modDir, "guipositions.json")) 
                 GlStateManager.popMatrix()
             } catch (ex: Exception) {
                 ex.printStackTrace()
-                UChat.chat("§cKazzUtilsV2 ${KazzUtils.version} caught and logged an ${ex::class.simpleName ?: "error"} while rendering ${element.name}. Please report this on the Discord server at discord.gg/skytils.")
+                UChat.chat("§cKazzUtils ${KazzUtils.version} caught and logged an ${ex::class.simpleName ?: "error"} while rendering ${element.name}. Please report this on the Discord server at discord.gg/LOLNOTHINGHEREIMLAZY.")
 
             }
             mc.mcProfiler.endSection()

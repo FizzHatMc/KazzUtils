@@ -1,9 +1,13 @@
 package de.kazzutils.features.dungeon.M7
 
 import de.kazzutils.KazzUtils
+import de.kazzutils.event.MainreceivePacketEvent
 import de.kazzutils.event.WorldChangeEvent
-import de.kazzutils.utils.ChatUtils
-import de.kazzutils.utils.TabUtils
+import de.kazzutils.utils.randomutils.ChatUtils
+import de.kazzutils.utils.randomutils.TabUtils
+import de.kazzutils.utils.RenderUtils
+import de.kazzutils.utils.Utils
+import de.kazzutils.utils.skyblockfeatures.CatacombsUtils
 import net.minecraft.network.play.server.S2APacketParticles
 import net.minecraft.util.EnumChatFormatting
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
@@ -92,7 +96,7 @@ class DragPrio {
             determinePrio()
         } else if (conf.singleDrag) {
 
-            de.kazzutils.utils.RenderUtils.drawTitle("${drag.dragColor} IS SPAWNING!",EnumChatFormatting.RED) // TODO: MAKE COLOR BE SAME AS DRAGON
+            RenderUtils.drawTitle("${drag.dragColor} IS SPAWNING!",EnumChatFormatting.RED) // TODO: MAKE COLOR BE SAME AS DRAGON
             showText = true
             Timer().schedule(2000) { showText = false }
         }
@@ -137,12 +141,12 @@ class DragPrio {
 
        if (split == 1) {
             if (bersTeam || (purpleSpawn && ((healer && conf.healerPurp.toString() == "Arch_Team") || (tank && conf.tankPurp.toString() == "Arch_Team")))) {
-                de.kazzutils.utils.RenderUtils.drawTitle("${bersDrag.dragColor} IS SPAWNING!", EnumChatFormatting.RED) //TODO: MAKE COLOR BE SAME AS DRAGON
+                RenderUtils.drawTitle("${bersDrag.dragColor} IS SPAWNING!", EnumChatFormatting.RED) //TODO: MAKE COLOR BE SAME AS DRAGON
             } else {
-                de.kazzutils.utils.RenderUtils.drawTitle("${archDrag.dragColor} IS SPAWNING!", EnumChatFormatting.RED) //TODO: MAKE COLOR BE SAME AS DRAGON
+                RenderUtils.drawTitle("${archDrag.dragColor} IS SPAWNING!", EnumChatFormatting.RED) //TODO: MAKE COLOR BE SAME AS DRAGON
             }
         } else {
-            de.kazzutils.utils.RenderUtils.drawTitle("${normalDrag.dragColor} IS SPAWNING!", EnumChatFormatting.RED) //TODO: MAKE COLOR BE SAME AS DRAGON
+            RenderUtils.drawTitle("${normalDrag.dragColor} IS SPAWNING!", EnumChatFormatting.RED) //TODO: MAKE COLOR BE SAME AS DRAGON
         }
 
         showText = true
@@ -195,20 +199,25 @@ class DragPrio {
     }
 
     @SubscribeEvent
-    fun onPacketRecievedEvent(packet: S2APacketParticles) {
-        if (search && packet.particleType.name == "ENCHANTMENT_TABLE") {
-            checkBlockPos(
-                packet.xCoordinate.toInt(),
-                packet.yCoordinate.toInt(),
-                packet.zCoordinate.toInt()
-            )
+    fun onPacketRecievedEvent(event: MainreceivePacketEvent<*,*>) {
+        if(!Utils.inSkyblock) return
+        if(!CatacombsUtils.inM7) return
+        //TODO: Is crashing right now??
+        if(event.packet is S2APacketParticles){
+            if (search && event.packet.particleType.name == "ENCHANTMENT_TABLE") {
+                checkBlockPos(
+                    event.packet.xCoordinate.toInt(),
+                    event.packet.yCoordinate.toInt(),
+                    event.packet.zCoordinate.toInt()
+                )
+            }
         }
     }
 
-    // Resetting search on world load
+//     Resetting search on world load
     @SubscribeEvent
     fun onWorldChange(event: WorldChangeEvent) {
-        search = false
+       search = false
     }
 
 }

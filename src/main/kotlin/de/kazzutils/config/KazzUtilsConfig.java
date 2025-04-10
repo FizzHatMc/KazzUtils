@@ -5,6 +5,7 @@ import com.google.gson.annotations.Expose;
 import de.kazzutils.KazzUtils;
 import de.kazzutils.config.categories.combat.Combat;
 import de.kazzutils.config.categories.dungeon.Dungeon;
+import de.kazzutils.config.categories.event.Event;
 import de.kazzutils.config.categories.farming.Farming;
 import de.kazzutils.config.categories.mining.Mining;
 import de.kazzutils.config.categories.misc.Misc;
@@ -17,7 +18,7 @@ public class KazzUtilsConfig extends Config {
 
     @Override
     public String getTitle(){
-        return "KazzUtilsV2 "+ KazzUtils.getVersion()+" by §aRealKazz§r, preset by §channibal22§r ";
+        return "KazzUtils "+ KazzUtils.getVersion()+" by §aRealKazz§r, preset by §channibal22§r ";
     }
 
     @Override
@@ -40,6 +41,10 @@ public class KazzUtilsConfig extends Config {
     @Expose
     @Category(name = "Farming", desc = "Farming")
     public Farming farming = new Farming();
+
+    @Expose
+    @Category(name = "Event", desc = "Event Stuff")
+    public Event event = new Event();
 
     @Expose
     @Category(name = "Misc", desc = "Random Settings")

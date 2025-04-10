@@ -3,9 +3,10 @@ package de.kazzutils.features.dungeon.F7
 import de.kazzutils.KazzUtils
 import de.kazzutils.data.enumClass.DunClass
 import de.kazzutils.data.m7.coords.CrystalCoords
-import de.kazzutils.utils.CatacombsUtils
-import de.kazzutils.utils.ColorUtils.toChromaColorInt
-import de.kazzutils.utils.TabUtils
+import de.kazzutils.utils.RenderUtils
+import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
+import de.kazzutils.utils.randomutils.TabUtils
+import de.kazzutils.utils.skyblockfeatures.CatacombsUtils
 import net.minecraft.client.Minecraft
 import net.minecraft.util.BlockPos
 import net.minecraftforge.client.event.RenderWorldLastEvent
@@ -40,8 +41,8 @@ class CrystalWaypoints {
 
             val color = Color(KazzUtils.config.dungeon.waypoints.m7f7.crystal.crystalWaypointColor.toChromaColorInt())
 
-            if (KazzUtils.config.dungeon.waypoints.m7f7.crystal.crystalWaypoints) de.kazzutils.utils.RenderUtils.renderBeaconBeam(x!!, y!!, z!!, Color.RED.rgb, color.rgb.toFloat(), event.partialTicks)
-            if (KazzUtils.config.dungeon.waypoints.m7f7.crystal.crystalText) de.kazzutils.utils.RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.crystal.crystalWaypointText, blockPos!!, event.partialTicks)
+            if (KazzUtils.config.dungeon.waypoints.m7f7.crystal.crystalWaypoints) RenderUtils.renderBeaconBeam(x!!, y!!, z!!, Color.RED.rgb, color.rgb.toFloat(), event.partialTicks)
+            if (KazzUtils.config.dungeon.waypoints.m7f7.crystal.crystalText) RenderUtils.renderWaypointText(KazzUtils.config.dungeon.waypoints.m7f7.crystal.crystalWaypointText, blockPos!!, event.partialTicks)
         }
     }
 }

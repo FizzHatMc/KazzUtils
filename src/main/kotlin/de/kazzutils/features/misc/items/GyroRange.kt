@@ -1,8 +1,9 @@
 package de.kazzutils.features.misc.items
 
 import de.kazzutils.KazzUtils
-import de.kazzutils.utils.ColorUtils.toChromaColorInt
-import de.kazzutils.utils.ItemUtils
+import de.kazzutils.utils.RenderUtils
+import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
+import de.kazzutils.utils.skyblockfeatures.ItemUtils
 import net.minecraft.client.Minecraft
 import net.minecraft.item.ItemStack
 import net.minecraft.util.Vec3
@@ -25,7 +26,7 @@ class GyroRange {
         val block = mc.theWorld.getBlockState(pos).block
         if (block.isAir(mc.theWorld, pos)) return
 
-        de.kazzutils.utils.RenderUtils.drawCylinder(
+        RenderUtils.drawCylinder(
             Vec3(pos).addVector(0.5, 1.0, 0.5),
             10f, 10f - KazzUtils.config.misc.items.gyroRangeScale, 0.2f, 40, 1, 0f, 0f, 0f,
             color.red / 255f, color.green / 255f, color.blue / 255f, color.alpha / 255f,

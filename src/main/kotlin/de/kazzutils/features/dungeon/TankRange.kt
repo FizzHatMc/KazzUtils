@@ -1,8 +1,9 @@
 package de.kazzutils.features.dungeon
 
 import de.kazzutils.KazzUtils
-import de.kazzutils.utils.TabUtils
-import de.kazzutils.utils.TabUtils.getPlayerByName
+import de.kazzutils.utils.randomutils.TabUtils
+import de.kazzutils.utils.randomutils.TabUtils.getPlayerByName
+import de.kazzutils.utils.RenderUtils
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.util.BlockPos
 import net.minecraft.util.Vec3
@@ -23,7 +24,7 @@ class TankRange {
         if (KazzUtils.config.dungeon.dungeonClass.tank.boneNecklace) radius += 15f
         if (KazzUtils.config.dungeon.dungeonClass.tank.tankRange  && tank != null && TabUtils.area == "Catacombs") {
             val pos = BlockPos(tank.posX, tank.posY, tank.posZ)
-            de.kazzutils.utils.RenderUtils.drawCylinder(
+            RenderUtils.drawCylinder(
                 Vec3(pos).addVector(0.5, 1.0, 0.5), radius, radius,
                 60f, 40, 1, 0f, 0f, 0f,
                 color.red / 255f, color.green / 255f, color.blue / 255f, color.alpha / 255f,

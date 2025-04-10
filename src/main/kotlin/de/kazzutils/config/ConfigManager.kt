@@ -4,7 +4,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.TypeAdapter
 import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonWriter
-import de.kazzutils.errors.*
+import de.kazzutils.errors.ConfigError
 import io.github.notenoughupdates.moulconfig.gui.GuiScreenElementWrapper
 import io.github.notenoughupdates.moulconfig.gui.MoulConfigEditor
 import io.github.notenoughupdates.moulconfig.observer.PropertyTypeAdapterFactory
@@ -23,7 +23,7 @@ import java.util.*
 
 class ConfigManager {
     companion object {
-        var configDirectory = File("config/KazzUtilsV2")
+        var configDirectory = File("config/kazzutils")
 
         val gson = GsonBuilder().setPrettyPrinting()
             .excludeFieldsWithoutExposeAnnotation()

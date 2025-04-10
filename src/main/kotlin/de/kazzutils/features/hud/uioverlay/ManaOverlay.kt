@@ -3,8 +3,8 @@ package de.kazzutils.features.hud.uioverlay
 import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.core.structure.GuiElement
-import de.kazzutils.utils.ChatUtils
 import de.kazzutils.utils.graphics.ScreenRenderer
+import de.kazzutils.utils.randomutils.ChatUtils
 import net.minecraft.util.EnumChatFormatting
 import java.awt.Color
 

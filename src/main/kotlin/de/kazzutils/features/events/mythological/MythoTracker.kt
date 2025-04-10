@@ -4,7 +4,7 @@ import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
 class MythoTracker {
-    
+
     companion object{
         var inq: Int = 0
         var champ: Int = 0
@@ -19,7 +19,7 @@ class MythoTracker {
         var feathers: Int = 0
 
         var sinceInq: Int = 0
-        
+
         var champChance: Double = 0.0
         var minoChance: Double = 0.0
         var gaiaChance: Double = 0.0
@@ -92,5 +92,5 @@ class MythoTracker {
             hunterChance = (Math.round(((hunter / totalMobs) * 100).toDouble()) / 100).toDouble()
         }
     }
-    
+
 }
