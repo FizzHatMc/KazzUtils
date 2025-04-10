@@ -2,7 +2,7 @@ package de.kazzutils.utils.skyblockfeatures
 
 import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.data.enumClass.WitherKingDragons
-import de.kazzutils.utils.ChatUtils
+import de.kazzutils.utils.randomutils.ChatUtils
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiPlayerTabOverlay
 import net.minecraft.init.Blocks
@@ -20,6 +20,17 @@ class CatacombsUtils {
     companion object {
         var inM7: Boolean = false
         var floor: String = "n"
+
+        fun inDungeon() : Boolean {
+            val scoreboard: List<String> = de.kazzutils.handler.ScoreboardHandler.getSidebarLines()
+            for (s in scoreboard) {
+                val sCleaned: String = de.kazzutils.handler.ScoreboardHandler.cleanSB(s)
+                if (sCleaned.contains("The Catacombs")) {
+                    return true
+                }
+            }
+            return false
+        }
 
         fun checkCata() {
             val scoreboard: List<String> = de.kazzutils.handler.ScoreboardHandler.getSidebarLines()

@@ -1,8 +1,8 @@
 package de.kazzutils.features.chatStuff
 
 import de.kazzutils.KazzUtils
-import de.kazzutils.utils.ChatUtils
-import de.kazzutils.utils.ChatUtils.getUserMessageFromUnformatedText
+import de.kazzutils.utils.randomutils.ChatUtils
+import de.kazzutils.utils.randomutils.ChatUtils.getUserMessageFromUnformatedText
 import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 

@@ -1,5 +1,6 @@
 package de.kazzutils.data.enumClass
 
+import de.kazzutils.data.enumClass.Deployable.entries
 import net.minecraft.util.EnumChatFormatting
 import net.minecraft.util.ResourceLocation
 

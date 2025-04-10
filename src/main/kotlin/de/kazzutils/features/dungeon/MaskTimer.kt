@@ -2,7 +2,7 @@ package de.kazzutils.features.dungeon
 
 import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc
-import de.kazzutils.utils.ChatUtils
+import de.kazzutils.utils.randomutils.ChatUtils
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.util.EnumChatFormatting
 import net.minecraft.world.World

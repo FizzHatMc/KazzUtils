@@ -1,7 +1,7 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.randomutils
 
 import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.*
+import kotlinx.serialization.json.Json
 import java.io.File
 
 object JsonUtils {

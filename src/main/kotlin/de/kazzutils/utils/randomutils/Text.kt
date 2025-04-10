@@ -1,4 +1,4 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.randomutils
 
 import net.minecraft.client.Minecraft
 import net.minecraft.event.ClickEvent

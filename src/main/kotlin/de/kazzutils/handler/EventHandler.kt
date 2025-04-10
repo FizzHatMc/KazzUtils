@@ -1,28 +1,44 @@
 package de.kazzutils.handler
 
-import de.kazzutils.event.ItemDropEvent
-import de.kazzutils.utils.ChatUtils
-import de.kazzutils.utils.skyblockfeatures.MuseumUtils
-import net.minecraftforge.common.MinecraftForge
-import net.minecraftforge.event.entity.player.PlayerInteractEvent
-import net.minecraftforge.fml.common.eventhandler.EventPriority
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
-import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action
-
 object EventHandler {
 
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
-    fun onItemDrop(event: ItemDropEvent) {
-        ItemDropEvent(event.player,event.droppedItem).postAndCatch()
-        ChatUtils.messageToChat("Test")
-        val protectedItems = MuseumUtils.getMissingItems()
-        val droppedItemStack = event.droppedItem
-        if (droppedItemStack != null) {
-            val droppedItem = droppedItemStack.item
-            if (protectedItems.containsKey(droppedItem.registryName.toString())) {
-                event.isCanceled = true
-            }
-        }
-    }
+    /**
+     * In diesem EventHandler kann ich Mittels offizielen Events Custom events Triggern.
+     * Beispiel:
+     * Offizieles ItemTossEvent (Triggert immer wenn ein Item gedroppt wird egal in welcher Form) wenn versucht wird Diamond zu droppen Triggert es alle ItemDropEvents
+     *
+     *
+     * @SubscribeEvent(priority = EventPriority.HIGHEST)
+     *     fun onItemDrop(event: ItemTossEvent) {
+     *         val player = event.player
+     *         val item = event.entityItem.entityItem
+     *         if(item.displayName.lowercase().contains("diamond")) {
+     *             ChatUtils.messageToChat("ItemTossEvent Diamond")
+     *
+     *             ItemDropEvent(player, item).postAndCatch()
+     *         }else ChatUtils.messageToChat("No Diamond")
+     *     }
+     *
+     *
+     *
+    */
+
+//    @SubscribeEvent(priority = EventPriority.HIGHEST)
+//    fun onItemDrop(event: ItemTossEvent) {
+//
+//
+//        val protectedItemNames = MuseumUtils.getMissingItems().keys.toList()
+//
+//        protectedItemNames.forEach { name ->
+//            if(itemName.contains(name.lowercase())){
+//                event.isCanceled = true
+//                ItemDropEvent(player,item).postAndCatch()
+//            }
+//        }
+//
+//
+//    }
+
+
 
 }

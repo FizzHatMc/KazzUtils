@@ -1,3 +1,5 @@
+package de.kazzutils.utils.randomutils
+
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 

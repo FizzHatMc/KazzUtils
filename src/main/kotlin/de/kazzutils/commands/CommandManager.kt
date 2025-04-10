@@ -7,7 +7,7 @@ import de.kazzutils.features.chatStuff.RequiredPetXp
 import de.kazzutils.features.mining.StarCultNotif
 import de.kazzutils.gui.KeyShortcutsGui
 import de.kazzutils.gui.editing.ElementaEditingGui
-import de.kazzutils.utils.ChatUtils
+import de.kazzutils.utils.randomutils.ChatUtils
 import net.minecraft.command.ICommandSender
 import net.minecraft.util.BlockPos
 import net.minecraft.util.ChatComponentText

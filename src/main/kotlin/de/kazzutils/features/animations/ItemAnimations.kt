@@ -9,7 +9,7 @@ import net.minecraft.util.MathHelper
 import kotlin.math.exp
 import kotlin.math.pow
 
-
+/** Taken from Dulkir mod - (https://github.com/inglettronald/DulkirMod)*/
 object ItemAnimations {
     val config = KazzUtils.config.misc.itemAnimations
 
@@ -43,7 +43,7 @@ object ItemAnimations {
     }
 
     /**
-     * Directly referenced by the ItemRendereMixin. If enabled will scale the item swing animation.
+     * Directly referenced by the ItemRenderMixin. If enabled will scale the item swing animation.
      * Returns whether custom animation was performed.
      */
     fun scaledSwing(swingProgress: Float): Boolean {
@@ -57,7 +57,7 @@ object ItemAnimations {
     }
 
     /**
-     * Directly referenced by the ItemRendereMixin. If enabled will scale the potion drink animation.
+     * Directly referenced by the ItemRenderMixin. If enabled will scale the potion drink animation.
      * Returns whether custom animation was performed.
      */
     fun rotationlessDrink(clientPlayer: AbstractClientPlayer, partialTicks: Float): Boolean {
@@ -73,7 +73,7 @@ object ItemAnimations {
     }
 
     /**
-     * Directly referenced by the ItemRendereMixin. If enabled will scale the potion drink animation.
+     * Directly referenced by the ItemRenderMixin. If enabled will scale the potion drink animation.
      * Returns whether custom animation was performed.
      */
     fun scaledDrinking(clientPlayer: AbstractClientPlayer, partialTicks: Float, itemToRender: ItemStack): Boolean {

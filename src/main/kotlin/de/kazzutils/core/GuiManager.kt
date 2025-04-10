@@ -21,8 +21,8 @@ import de.kazzutils.KazzUtils
 import de.kazzutils.core.structure.GuiElement
 import de.kazzutils.event.RenderHUDEvent
 import de.kazzutils.gui.editing.VanillaEditingGui
-import de.kazzutils.utils.ui.GlState
 import de.kazzutils.utils.toast.Toast
+import de.kazzutils.utils.ui.GlState
 import gg.essential.elementa.ElementaVersion
 import gg.essential.elementa.components.Window
 import gg.essential.elementa.dsl.pixels
@@ -116,7 +116,7 @@ object GuiManager : PersistentSave(File(KazzUtils.modDir, "guipositions.json")) 
         if (Minecraft.getMinecraft().ingameGUI !is GuiIngameForge) return
         if (event.type != RenderGameOverlayEvent.ElementType.HOTBAR) return
         GlState.pushState()
-        //MinecraftForge.EVENT_BUS.post(RenderHUDEvent(event))
+        MinecraftForge.EVENT_BUS.post(RenderHUDEvent(event))
         GlState.popState()
     }
 
@@ -126,14 +126,14 @@ object GuiManager : PersistentSave(File(KazzUtils.modDir, "guipositions.json")) 
         titleDisplayTicks = ticks
     }
 
-    // LabyMod Support
-    //@SubscribeEvent
-    //fun renderPlayerInfoLabyMod(event: RenderGameOverlayEvent) {
-    //    if (event.type != null) return
-    //    GlState.pushState()
-    //    MinecraftForge.EVENT_BUS.post(RenderHUDEvent(event))
-    //    GlState.popState()
-    //}
+//     LabyMod Support
+    @SubscribeEvent
+    fun renderPlayerInfoLabyMod(event: RenderGameOverlayEvent) {
+        if (event.type != null) return
+        GlState.pushState()
+        MinecraftForge.EVENT_BUS.post(RenderHUDEvent(event))
+        GlState.popState()
+    }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     fun onRenderHUD(event: RenderHUDEvent) {

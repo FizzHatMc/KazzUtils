@@ -1,7 +1,7 @@
 package de.kazzutils.features.mining
 
 import de.kazzutils.KazzUtils.Companion.mc
-import de.kazzutils.utils.ChatUtils
+import de.kazzutils.utils.randomutils.ChatUtils
 import net.minecraft.client.Minecraft
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.util.EnumChatFormatting
@@ -31,7 +31,7 @@ object StarCultNotif {
 
                 ChatUtils.messageToChat(EnumChatFormatting.BLUE.toString() + "---------------------------------")
                 ChatUtils.messageToChat(EnumChatFormatting.RED.toString() + "------------STAR CULT------------")
-                ChatUtils.messageToChat(EnumChatFormatting.BLUE.toString() + "--------------------------------")
+                ChatUtils.messageToChat(EnumChatFormatting.BLUE.toString() + "---------------------------------")
 
                 mc.ingameGUI.displayTitle("Star Cult","",0,2,0)
                 world.playSound(player.posX, player.posY, player.posZ, "random.orb", 1f, 1f, false)

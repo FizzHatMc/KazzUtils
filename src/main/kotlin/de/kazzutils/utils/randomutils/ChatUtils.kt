@@ -1,4 +1,4 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.randomutils
 
 import de.kazzutils.KazzUtils
 import de.kazzutils.KazzUtils.Companion.mc

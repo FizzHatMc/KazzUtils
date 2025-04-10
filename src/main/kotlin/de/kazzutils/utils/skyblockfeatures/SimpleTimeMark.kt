@@ -1,4 +1,4 @@
-package de.kazzutils.utils
+package de.kazzutils.utils.skyblockfeatures
 
 import java.time.Instant
 import java.time.LocalDateTime

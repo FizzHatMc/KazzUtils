@@ -5,8 +5,8 @@ import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.core.structure.GuiElement
 import de.kazzutils.data.farming.GardenXP
 import de.kazzutils.utils.colors.ColorUtils.toChromaColorInt
-import de.kazzutils.utils.TabUtils
 import de.kazzutils.utils.graphics.ScreenRenderer
+import de.kazzutils.utils.randomutils.TabUtils
 
 object GardenLevelHud {
 
@@ -26,10 +26,10 @@ object GardenLevelHud {
             if (TabUtils.gardenLevel == 15) {
                 message = "15"
             } else if (KazzUtils.config.farming.gardenLevel.gardenLevelPercentage) {
-                message = ""+TabUtils.gardenLevel + " §e" + TabUtils.gardenPercent + "§7%"
+                message = ""+ TabUtils.gardenLevel + " §e" + TabUtils.gardenPercent + "§7%"
             } else {
                 val xp: Int = GardenXP.getGardenXp(TabUtils.gardenLevel, TabUtils.gardenPercent)
-                message = ""+TabUtils.gardenLevel + " §7(§6" + xp + "§7/§6" + GardenXP.getMaxXp(TabUtils.gardenLevel) + "§7)§r"
+                message = ""+ TabUtils.gardenLevel + " §7(§6" + xp + "§7/§6" + GardenXP.getMaxXp(TabUtils.gardenLevel) + "§7)§r"
 
             }
 
