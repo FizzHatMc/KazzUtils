@@ -3,6 +3,7 @@ package de.kazzutils.utils.randomutils
 import com.google.common.collect.ComparisonChain
 import com.google.common.collect.Ordering
 import de.kazzutils.KazzUtils.Companion.mc
+import de.kazzutils.utils.NumberUtils.getNumber
 import net.minecraft.client.Minecraft
 import net.minecraft.client.network.NetworkPlayerInfo
 import net.minecraft.entity.player.EntityPlayer
@@ -116,7 +117,7 @@ object TabUtils { //TODO: REWORK CLASS = CRASHES ALOT
                     val split = trim.substring(trim.indexOf(":") + 1)
                     var lvl = split.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[1]
                     lvl = lvl.replace(" ", "")
-                    val test: Int? = NumberUtils.getNumber(lvl)
+                    val test: Int? = lvl.getNumber()
                     if (test != null) {
                         gardenLevel = test
                         if (gardenLevel != 15) {

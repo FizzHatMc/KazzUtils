@@ -113,6 +113,7 @@ class KazzUtils {
         CommandManager()
         guiManager = GuiManager
 
+
         /**FEATURES*/
         reg(PlayerClass())
         reg(MaskTimer())
@@ -162,6 +163,7 @@ class KazzUtils {
         if(event.entity is EntityArmorStand) DeployableManager.instance.detectDeployables(event.entity as EntityArmorStand)
     }
 
+
     private var ticks = 0L
 
     @SubscribeEvent
@@ -172,12 +174,16 @@ class KazzUtils {
 
         if(ticks % 2 == 0L) {
             TabUtils.parseTabEntries()
+            NewTabUtils.parseTabEntries()
             CatacombsUtils.checkCata()
             DunClass.setupName()
         }//each 1/10th second
         if(ticks % 20 == 0L) {
             if(config.mining.starCult) StarCultNotif.checkCult()
             Utils.checkSkyblock()
+
+
+
         }//each second
 
         if (displayScreen != null) {
@@ -224,6 +230,9 @@ class KazzUtils {
         val config: KazzUtilsConfig
             get() = configManager.config ?: error("config is null")
     }
+
+
+
 
     private fun reg(obj: Any){
         MinecraftForge.EVENT_BUS.register(obj)

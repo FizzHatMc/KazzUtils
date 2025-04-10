@@ -8,6 +8,9 @@ import de.kazzutils.event.CheckRenderEntityEvent
 import de.kazzutils.handler.hook.RenderLivingEntityHelper
 import de.kazzutils.utils.RenderUtils
 import de.kazzutils.utils.randomutils.TabUtils
+import de.kazzutils.mixin.RenderLivingEntityHelper
+import de.kazzutils.mixin.RenderLivingEntityHelper2
+import de.kazzutils.mixin.RenderLivingEntityHelper2.Companion.setEntityColorWithNoHurtTime
 import de.kazzutils.utils.skyblockfeatures.ItemUtils
 import de.kazzutils.utils.ui.withAlpha
 import net.minecraft.block.BlockStainedGlass
