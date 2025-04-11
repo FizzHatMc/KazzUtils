@@ -5,12 +5,10 @@ import de.kazzutils.KazzUtils.Companion.mc
 import de.kazzutils.data.enumClass.ChatColor
 import de.kazzutils.data.enumClass.ChatColor.Companion.toChatColor
 import de.kazzutils.event.CheckRenderEntityEvent
-import de.kazzutils.handler.hook.RenderLivingEntityHelper
+import de.kazzutils.handler.hook.RenderLivingEntityHelper2.Companion.setEntityColorWithNoHurtTime
 import de.kazzutils.utils.RenderUtils
 import de.kazzutils.utils.randomutils.TabUtils
 import de.kazzutils.mixin.RenderLivingEntityHelper
-import de.kazzutils.mixin.RenderLivingEntityHelper2
-import de.kazzutils.mixin.RenderLivingEntityHelper2.Companion.setEntityColorWithNoHurtTime
 import de.kazzutils.utils.skyblockfeatures.ItemUtils
 import de.kazzutils.utils.ui.withAlpha
 import net.minecraft.block.BlockStainedGlass
@@ -83,7 +81,7 @@ object LividFinder {
         if (!newLivid.name.contains("Livid")) return
 
         lividEntity = newLivid
-        RenderLivingEntityHelper.setEntityColorWithNoHurtTime(
+        setEntityColorWithNoHurtTime(
             newLivid,
             color!!.toColor()!!.withAlpha(30)
         ) { shouldHighlight() }

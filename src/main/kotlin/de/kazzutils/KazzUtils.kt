@@ -37,6 +37,7 @@ import de.kazzutils.handler.EventHandler
 import de.kazzutils.handler.hook.EntityPlayerSPHook
 import de.kazzutils.handler.transformers.AccessorCommandHandler
 import de.kazzutils.handler.transformers.PacketThreadUtilTransformer
+import de.kazzutils.utils.NewTabUtils
 import de.kazzutils.utils.Utils
 import de.kazzutils.utils.colors.CustomColor
 import de.kazzutils.utils.graphics.ScreenRenderer
@@ -179,7 +180,8 @@ class KazzUtils {
             DunClass.setupName()
         }//each 1/10th second
         if(ticks % 20 == 0L) {
-            if(config.mining.starCult) StarCultNotif.checkCult()
+
+            //if(config.mining.starCult) StarCultNotif.checkCult()
             Utils.checkSkyblock()
 
 

@@ -3,7 +3,7 @@ package de.kazzutils.utils.randomutils
 import com.google.common.collect.ComparisonChain
 import com.google.common.collect.Ordering
 import de.kazzutils.KazzUtils.Companion.mc
-import de.kazzutils.utils.NumberUtils.getNumber
+import de.kazzutils.utils.randomutils.NumberUtils.getNumber
 import net.minecraft.client.Minecraft
 import net.minecraft.client.network.NetworkPlayerInfo
 import net.minecraft.entity.player.EntityPlayer
