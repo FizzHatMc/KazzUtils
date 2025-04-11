@@ -5,7 +5,7 @@ plugins {
     java
     id("gg.essential.loom") version "0.10.0.+"
     id("dev.architectury.architectury-pack200") version "0.1.3"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("com.github.johnrengelman.shadow") version "7.1.0"
     kotlin("jvm") version "2.0.0"
     kotlin("plugin.serialization") version "1.9.22"
 
@@ -112,7 +112,7 @@ dependencies {
     shadowImpl("org.spongepowered:mixin:0.7.11-SNAPSHOT") {
         isTransitive = false
     }
-    annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT")
+    annotationProcessor("org.spongepowered:mixin:0.8.5")
 
     // If you don't want to log in with your real minecraft account, remove this line
     runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.2.1")
@@ -134,7 +134,9 @@ dependencies {
             prefer("1.6.2")
         }
     }
-    annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT")
+    //annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT")
+
+    implementation("org.ow2.asm:asm-commons:9.6")// Or the latest version
 
 
     //shadowModImpl(libs.moulconfig)
